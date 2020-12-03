@@ -8,9 +8,9 @@ foreach ($User in $Users)
 {   # Main block
 
 	# Let's populate some variables, SAM creation further down
-    $FirstName = $User.fName
-    $LastName = $User.lName
-    $Displayname = $User.dName
+    $FirstName = $User.fNamn
+    $LastName = $User.lNamn
+    $Displayname = $User.dNamn
     $Description = $User.avdelning
     $Mobile = $User.tele
     $Address = $User.adress
@@ -36,7 +36,7 @@ foreach ($User in $Users)
     -City $City `
     -Path "$OU" `
     -SamAccountName $SAM `
-    -UserPrincipalName $UPN 
+    -UserPrincipalName $UPN
 
     # Add users to groups, using Description to choose group
 
