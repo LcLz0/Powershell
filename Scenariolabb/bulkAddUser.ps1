@@ -1,3 +1,7 @@
+# Create groups
+powershell.exe -File "F:\grpCreate.ps1"
+
+# Loop through user list and create entries
 $Users = Import-Csv -Path "F:\anvandarlistatest.csv"
 foreach ($User in $Users)
 { # Main block
