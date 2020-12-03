@@ -37,23 +37,22 @@ foreach ($User in $Users)
     # Add users to groups, using Description to choose group
 
     if ($Description -eq "Konsult") {
-      # code
+        # Lägg till i grupp Konsulter
     }
-      # Lägg till i grupp Konsulter
 
     if ($Description -eq "Seniorkonsult") {
-      # Lägg till i grupp Seniorkonsulter
+        # Lägg till i grupp Seniorkonsulter
     }
 
     if ($Description -eq "Säljare") {
-      # Lägg till i grupp Försäljningsavdelning
+        # Lägg till i grupp Försäljningsavdelning
     }
 
     if ($Description -eq "Ekonom") {
-      # Lägg till i grupp Ekonomi och Redovisning
+        # Lägg till i grupp Ekonomi och Redovisning
     }
 
     if ($Description -eq "Vaktis") {
-      # Lägg till i OU-lokala admingrupper. Väntar på lösning
+        # Lägg till i OU-lokala admingrupper. Väntar på lösning
     }
 }
