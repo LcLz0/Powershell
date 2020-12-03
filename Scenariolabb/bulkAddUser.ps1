@@ -16,19 +16,21 @@ $uniqCities = $infoDump.stad | Select-Object -Unique
 # Create toplevel OU
 foreach ($City in $uniqCities)
 {
-  New-ADOrganizationalUnit -Name:"$City" -Path:"DC=jultomten,DC=nu"  -ProtectedFromAccidentalDeletion:$false
-
+  #New-ADOrganizationalUnit -Name:"$City" -Path:"DC=jultomten,DC=nu"  -ProtectedFromAccidentalDeletion:$false
+  echo $City
   # Create subOu in each toplevel
   foreach ($subOu in $subUnits)
   {
-    New-ADOrganizationalUnit -Name:"$subOu.subOu" -Path:"OU=$City,DC=jultomten,DC=nu" -ProtectedFromAccidentalDeletion:$false
+    #New-ADOrganizationalUnit -Name:"$subOu.subOu" -Path:"OU=$City,DC=jultomten,DC=nu" -ProtectedFromAccidentalDeletion:$false
+    echo $subOu.subOu
   }
 
   # Create groups in each City
   foreach ($grp in $groups)
   {
     $grpName = $City + "s" + $grp.gName
-    New-ADGroup -GroupCategory:"Security" -GroupScope:"Global" -Name:"$grpName" -Path:"OU=Grupper,OU=$City,DC=jultomten,DC=nu" -SamAccountName:"$grpName" -Server:"DC.jultomten.nu"
+    echo $grpName
+    #New-ADGroup -GroupCategory:"Security" -GroupScope:"Global" -Name:"$grpName" -Path:"OU=Grupper,OU=$City,DC=jultomten,DC=nu" -SamAccountName:"$grpName" -Server:"DC.jultomten.nu"
   }
 
 }
