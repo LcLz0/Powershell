@@ -16,27 +16,20 @@ foreach ($User in $Users)
     $Address = $User.adress
     $PostalCode = $User.postNr
     $City = $User.stad
-    # Remember to change "domain" to actual domain name
-    $OU = "OU=Användare,OU=$City,DC=domain,DC=nu"
+    $OU = "OU=Användare,OU=$City,DC=jultomten,DC=nu"
 
 	# SAM name creation https://4sysops.com/archives/strings-in-powershell-replace-compare-concatenate-split-substring/
 	# $name.Remove(0.99) Remove everything except first char
 	# STRING.ToLower() to change all to lowercase
-	 $SAM = $FirstName.Remove(0.50) + $LastName
-   $UPN = "$SAM@jultomten.nu"
+    $SAM = $FirstName.Remove(0.99) + $LastName
+    $SAM = $SAM.ToLower()
+    $UPN = "$SAM" + "@jultomten.nu"
 
 	# Run commands with above vars
-    New-ADUser -Name "$Displayname" `
-    -GivenName $FirstName `
-    -Surname $LastName `
-    -Description $Description `
-    -MobilePhone $Mobile `
-    -StreetAddress "$Address" `
-    -PostalCode "$PostalCode" `
-    -City $City `
-    -Path "$OU" `
-    -SamAccountName $SAM `
-    -UserPrincipalName $UPN
+    New-ADUser -Name "$Displayname"-GivenName $FirstName -Surname $LastName -Description $Description -MobilePhone $Mobile -StreetAddress "$Address" -PostalCode "$PostalCode" -City $City -Path "$OU" -SamAccountName "$SAM" -UserPrincipalName "$UPN"
+    Unlock-ADAccount -Identity $SAM
+}
+
 
     # Add users to groups, using Description to choose group
 
