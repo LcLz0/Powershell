@@ -1,4 +1,4 @@
-$Users = Import-Csv -Path "F:\import3.csv"
+$Users = Import-Csv -Path "F:\anvandarlista.csv"
 foreach ($User in $Users)
 {
 	# Let's populate some variables, SAM creation further down
@@ -24,7 +24,7 @@ foreach ($User in $Users)
     -GivenName $FirstName `
     -Surname $LastName `
     -SamAccountName $SAM `
-    -UserPrincipalName $UPN `
+  #  -UserPrincipalName $UPN `
     -Office $Office `
     -MobilePhone $Mobile `
     -StreetAddress "$Address" `
