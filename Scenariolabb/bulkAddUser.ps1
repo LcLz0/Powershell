@@ -17,7 +17,7 @@ foreach ($User in $Users)
     $PostalCode = $User.postNr
     $City = $User.stad
     # Remember to change "domnain" to actual domain name
-    $OU = 'OU=Användare,OU=' + $City + ',DC=domain,DC=nu'
+    $OU = "OU=Användare,OU=$City,DC=domain,DC=nu"
 
 	# SAM name creation https://4sysops.com/archives/strings-in-powershell-replace-compare-concatenate-split-substring/
 	# $name.Remove(0.99) Remove everything except first char
