@@ -1,8 +1,43 @@
-# Create groups
-powershell.exe -File "F:\grpCreate.ps1"
+################## Initalise main importVars ##################
+$infoDump = Import-Csv -Path "F:\anvandarlistatest.csv"
+$groups = Import-Csv -Path "F:\groups.csv"
+$subUnits = Import-Csv -Path "F:\subUnits.csv"
 
-# Loop through user list and create entries
-$Users = Import-Csv -Path "F:\anvandarlistatest.csv"
+
+################## Create main OU-structure ##################
+
+#  $stadad = $infoDump.stad | Select-Object -Unique
+
+# Get list of unique cities
+$uniqCities = $infoDump.stad | Select-Object -Unique
+
+# Create OU-structure
+
+# Create toplevel OU
+foreach ($City in $uniqCities)
+{
+  New-ADOrganizationalUnit -Name:"$City" -Path:"DC=jultomten,DC=nu" -ProtectedFromAccidentalDeletion:$true
+
+  # Create subOu in each toplevel
+  foreach ($subOu in $subUnits)
+  {
+    New-ADOrganizationalUnit -Name:"$subOu" -Path:"OU=$City,DC=jultomten,DC=nu"
+  }
+
+  # Create groups in each City
+  foreach ($grp in $groups)
+  {
+    $grpName = $City + "s" + $grp
+    New-ADGroup -GroupCategory:"Security" -GroupScope:"Global" -Name:"$grpName" -Path:"OU=Grupper,OU=$City,DC=jultomten,DC=nu" -SamAccountName:"$grpName" -Server:"DC.jultomten.nu"
+  }
+
+}
+
+
+
+
+
+
 
 foreach ($User in $Users)
 {   # Main block
@@ -10,7 +45,7 @@ foreach ($User in $Users)
 	# Let's populate some variables, SAM creation further down
     $FirstName = $User.fNamn
     $LastName = $User.lNamn
-    $Displayname = $User.dNamn
+    $Displayname = $User.dName
     $Description = $User.avdelning
     $Mobile = $User.tele
     $Address = $User.adress
@@ -30,7 +65,7 @@ foreach ($User in $Users)
     Unlock-ADAccount -Identity $SAM
 }
 
-
+<#
     # Add users to groups, using Description to choose group
 
     if ($Description -eq "Konsult") {
@@ -52,4 +87,4 @@ foreach ($User in $Users)
     if ($Description -eq "Vaktis") {
         # Lägg till i OU-lokala admingrupper. Väntar på lösning
     }
-}
+}#>
