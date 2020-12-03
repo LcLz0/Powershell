@@ -5,12 +5,13 @@ foreach ($User in $Users)
     $FirstName = $User.fName
     $LastName = $User.lName
     $Displayname = $User.dName
-    $UPN = $User.upn
+  #  $UPN = $User.upn
     $Office = $User.avdelning
     $Mobile = $User.tele
     $Address = $User.adress
-    $PostalCode = $User.zip
-    $City = $User.st
+    $PostalCode = $User.postNr
+    $City = $User.stad
+    # Remember to change "domnain" to actual domain name
     $OU = 'OU=Användare,OU=' + $City + ',DC=domain,DC=nu'
 
 	# SAM name creation https://4sysops.com/archives/strings-in-powershell-replace-compare-concatenate-split-substring/
