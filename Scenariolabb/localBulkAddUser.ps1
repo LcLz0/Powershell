@@ -62,7 +62,7 @@ foreach ($User in $infoDump)
     echo "City = $City"
     echo "OU-path = $OU"
     echo "SAM = $SAM"
-    echo "UPN = $UPN"
+    echo "UPN = $UPN" 
 
 }
 
