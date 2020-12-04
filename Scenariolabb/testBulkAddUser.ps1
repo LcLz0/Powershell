@@ -26,8 +26,9 @@ foreach ($City in $uniqCities)
   # Create groups in each City
   foreach ($grp in $groups)
   {
-    $grpName = $City + "s" + $grp.gName
-    echo "Creating groups in each City OU. grpName = $grpName"
+    $grpName = $grp.gName
+    $grpSAM = $City + "s" + $grp.gName
+    echo "Creating groups for each city, for each department. Group name = $grpName with SAM = $grpSAM"
   }
 
 }
@@ -70,23 +71,28 @@ foreach ($User in $infoDump)
     # Add users to groups, using Description to choose group
 
     if ($Description -eq "Konsult") {
-      $usrGrp = $City + "sKonsulter"
+      $grpName = $grp.gName
+      $grpSAM = $City + "s" + $grp.gName
       echo "Adding user $SAM to User group $usrGrp"
     }
 
     if ($Description -eq "Seniorkonsult") {
-        # Lägg till i grupp Seniorkonsulter
+      $usrGrp = $City + "sSeniorer"
+      echo "Adding user $SAM to User group $usrGrp"
     }
 
     if ($Description -eq "Säljare") {
-        # Lägg till i grupp Försäljningsavdelning
+      $usrGrp = $City + "sSäljare"
+      echo "Adding user $SAM to User group $usrGrp"
     }
 
     if ($Description -eq "Ekonom") {
-        # Lägg till i grupp Ekonomi och Redovisning
+      $usrGrp = $City + "sEkonomer"
+      echo "Adding user $SAM to User group $usrGrp"
     }
 
     if ($Description -eq "Vaktis") {
-        # Lägg till i OU-lokala admingrupper. Väntar på lösning
+      $usrGrp = $City + "sKonsulter"
+      echo "Adding user $SAM to User group $usrGrp"
     }
 }
