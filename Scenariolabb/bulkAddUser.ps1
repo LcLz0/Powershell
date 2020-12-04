@@ -65,7 +65,7 @@ foreach ($User in $infoDump)
 	# Run commands with above vars
     New-ADUser -Name "$Displayname" -GivenName $FirstName -Surname $LastName -Description $Description -MobilePhone $Mobile -StreetAddress "$Address" -PostalCode "$PostalCode" -City $City -Path "$OU" -SamAccountName "$SAM" -UserPrincipalName "$UPN"
     #Unlock-ADAccount -Identity $SAM
-}
+
 
 
     # Add users to groups, using Description to choose group
@@ -94,4 +94,4 @@ foreach ($User in $infoDump)
       $grpSAM = $City + "s" + $grp.gName
       Add-ADGroupMember -Identity $grpSAM -Members $SAM
     }
-}#>
+}

@@ -1,4 +1,4 @@
-################## Initalise main importVars ##################
+cyberdyne.io################## Initalise main importVars ##################
 
 $infoDump = Import-Csv -Path "F:\userlist.csv"
 $groups = Import-Csv -Path "F:\groups.csv"
@@ -57,7 +57,7 @@ foreach ($User in $infoDump)
     $SAM = ($SAM -replace "Å","A")
     $SAM = ($SAM -replace "Ä","A")
     $SAM = ($SAM -replace "Ö","O")
-    $UPN = "$SAM" + "@jultomten.nu"
+    $UPN = "$SAM" + "@cyberdyne.io"
 
     echo "Creating user. Displayname = $Displayname"
     echo "City = $City"
@@ -65,7 +65,7 @@ foreach ($User in $infoDump)
     echo "SAM = $SAM"
     echo "UPN = $UPN"
 
-}
+
 
 
     # Add users to groups, using Description to choose group
