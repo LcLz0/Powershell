@@ -55,9 +55,7 @@ foreach ($User in $infoDump)
 	# STRING.ToLower() to change all to lowercase
     $SAM = $FirstName.Remove(0.99) + $LastName
     $SAM = $SAM.ToLower()
-    <#$SAM = ($SAM -replace "Å","A")
     $SAM = ($SAM -replace "Ä","A")
-    $SAM = ($SAM -replace "Ö","O")#>
     $UPN = "$SAM" + "@cyberdyne.io"
 
     echo "Creating user. Displayname = $Displayname"
