@@ -8,26 +8,26 @@ $subUnits = Import-Csv -Path "F:\subUnits.csv"
 
 # Get list of unique cities
 $uniqCities = $infoDump.stad | Select-Object -Unique
-echo "uniqCities = $uniqCities"
+echo "Getting unique cities from userlist. uniqCities = $uniqCities"
 
 ### Create OU-structure
 
 # Create toplevel OU
 foreach ($City in $uniqCities)
 {
-  echo "City = $City"
+  echo "Creating top level OU, named after city. City = $City"
 
   # Create subOu in each toplevel
   foreach ($subOu in $subUnits)
   {
-    echo "subOu = $subOu.subOu"
+    echo "Creating sub-OU in each City. City = $City subOu = $subOu.subOu"
   }
 
   # Create groups in each City
   foreach ($grp in $groups)
   {
     $grpName = $City + "s" + $grp.gName
-    echo "grpName = $grpName"
+    echo "Creating groups in each City OU. grpName = $grpName"
   }
 
 }
@@ -58,7 +58,7 @@ foreach ($User in $infoDump)
     $SAM = ($SAM -replace "Ö","O")
     $UPN = "$SAM" + "@jultomten.nu"
 
-    echo "Displayname = $Displayname"
+    echo "Creating user. Displayname = $Displayname"
     echo "City = $City"
     echo "OU-path = $OU"
     echo "SAM = $SAM"
@@ -71,7 +71,7 @@ foreach ($User in $infoDump)
 
     if ($Description -eq "Konsult") {
       $usrGrp = $City + "sKonsulter"
-      echo "User group = $usrGrp"
+      echo "Adding user $SAM to User group $usrGrp"
     }
 
     if ($Description -eq "Seniorkonsult") {
