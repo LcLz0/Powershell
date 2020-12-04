@@ -73,26 +73,30 @@ foreach ($User in $infoDump)
     if ($Description -eq "Konsult") {
       $grpName = $grp.gName
       $grpSAM = $City + "s" + $grp.gName
-      echo "Adding user $SAM to User group $usrGrp"
+      echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 
     if ($Description -eq "Seniorkonsult") {
-      $usrGrp = $City + "sSeniorer"
-      echo "Adding user $SAM to User group $usrGrp"
+      $grpName = $grp.gName
+      $grpSAM = $City + "s" + $grp.gName
+      echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 
     if ($Description -eq "Säljare") {
-      $usrGrp = $City + "sSäljare"
-      echo "Adding user $SAM to User group $usrGrp"
+      $grpName = $grp.gName
+      $grpSAM = $City + "s" + $grp.gName
+      echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 
     if ($Description -eq "Ekonom") {
-      $usrGrp = $City + "sEkonomer"
-      echo "Adding user $SAM to User group $usrGrp"
+      $grpName = $grp.gName
+      $grpSAM = $City + "s" + $grp.gName
+      echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 
     if ($Description -eq "Vaktis") {
-      $usrGrp = $City + "sKonsulter"
-      echo "Adding user $SAM to User group $usrGrp"
+      $grpName = $grp.gName
+      $grpSAM = $City + "s" + $grp.gName
+      echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 }
