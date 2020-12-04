@@ -70,28 +70,28 @@ foreach ($User in $infoDump)
 
     # Add users to groups, using Description to choose group
 
-  <#  if ($Description -eq "Konsult") {
-      $grpSAM = $City + "s" + $grp.gName
+    if ($Description -eq "Konsult") {
+      $grpSAM = $City + "sKonsulter"
       Add-ADGroupMember -Identity $grpSAM -Members $SAM
     }
 
     if ($Description -eq "Seniorkonsult") {
-      $grpSAM = $City + "s" + $grp.gName
+      $grpSAM = $City + "sSeniorer"
       Add-ADGroupMember -Identity $grpSAM -Members $SAM
     }
 
     if ($Description -eq "Säljare") {
-      $grpSAM = $City + "s" + $grp.gName
+      $grpSAM = $City + "sSäljare"
       Add-ADGroupMember -Identity $grpSAM -Members $SAM
     }
 
     if ($Description -eq "Ekonom") {
-      $grpSAM = $City + "s" + $grp.gName
+      $grpSAM = $City + "sEkonomer"
       Add-ADGroupMember -Identity $grpSAM -Members $SAM
     }
 
     if ($Description -eq "Vaktis") {
-      $grpSAM = $City + "s" + $grp.gName
+      $grpSAM = $City + "sVaktis"
       Add-ADGroupMember -Identity $grpSAM -Members $SAM
-    }#>
+    }
 }
