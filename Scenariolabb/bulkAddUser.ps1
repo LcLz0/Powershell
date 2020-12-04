@@ -1,8 +1,8 @@
 ################## Initalise main importVars ##################
 
-$infoDump = Import-Csv -Path "F:\userlist.csv"
-$groups = Import-Csv -Path "F:\groups.csv"
-$subUnits = Import-Csv -Path "F:\subUnits.csv"
+$infoDump = Import-Csv -Path "C:\Scripts\userlist.csv"
+$groups = Import-Csv -Path "C:\Scripts\groups.csv"
+$subUnits = Import-Csv -Path "C:\Scripts\subUnits.csv"
 
 ################## Create main OU-structure ##################
 
@@ -12,18 +12,18 @@ $uniqCities = $infoDump.city | Select-Object -Unique
 ### Create OU-structure
 
 # Create static top level OUs
-New-ADOrganizationalUnit -Name:"Resursgrupper" -Path:"DC=cyberdyne,DC=io"  -ProtectedFromAccidentalDeletion:$false
-New-ADOrganizationalUnit -Name:"Servers" -Path:"DC=cyberdyne,DC=io"  -ProtectedFromAccidentalDeletion:$false
+New-ADOrganizationalUnit -Name:"Resursgrupper" -Path:"DC=cyberdyne,DC=io"
+New-ADOrganizationalUnit -Name:"Servers" -Path:"DC=cyberdyne,DC=io"
 
 # Create toplevel OU
 foreach ($City in $uniqCities)
 {
-  New-ADOrganizationalUnit -Name:"$City" -Path:"DC=cyberdyne,DC=io"  -ProtectedFromAccidentalDeletion:$false
+  New-ADOrganizationalUnit -Name:"$City" -Path:"DC=cyberdyne,DC=io"
 
   # Create subOu in each toplevel
   foreach ($subOu in $subUnits)
   {
-    New-ADOrganizationalUnit -Name:$subOu.subOu -Path:"OU=$City,DC=cyberdyne,DC=io" -ProtectedFromAccidentalDeletion:$false
+    New-ADOrganizationalUnit -Name:$subOu.subOu -Path:"OU=$City,DC=cyberdyne,DC=io"
   }
 
   # Create groups in each City
@@ -56,10 +56,10 @@ foreach ($User in $infoDump)
 	# $name.Remove(0.99) Remove everything except first char
 	# STRING.ToLower() to change all to lowercase
     $SAM = $FirstName.Remove(0.99) + $LastName
-    $SAM = $SAM.ToLower()
     $SAM = ($SAM -replace "Å","A")
     $SAM = ($SAM -replace "Ä","A")
     $SAM = ($SAM -replace "Ö","O")
+    $SAM = $SAM.ToLower()
     $UPN = "$SAM" + "@cyberdyne.io"
 
 	# Run commands with above vars
