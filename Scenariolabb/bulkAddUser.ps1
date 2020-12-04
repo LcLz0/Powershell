@@ -63,7 +63,7 @@ foreach ($User in $infoDump)
     $UPN = "$SAM" + "@cyberdyne.io"
 
 	# Run commands with above vars
-    New-ADUser -Name "$Displayname" -GivenName $FirstName -Surname $LastName -Description $Description -MobilePhone $Mobile -StreetAddress "$Address" -PostalCode "$PostalCode" -City $City -Path "$OU" -SamAccountName "$SAM" -UserPrincipalName "$UPN"
+    New-ADUser -Name $Displayname -DisplayName "$Displayname" -GivenName $FirstName -Surname $LastName -Description $Description -MobilePhone $Mobile -StreetAddress "$Address" -PostalCode "$PostalCode" -City $City -Path "$OU" -SamAccountName "$SAM" -UserPrincipalName "$UPN"
     #Unlock-ADAccount -Identity $SAM
 
 
@@ -94,4 +94,10 @@ foreach ($User in $infoDump)
       $grpSAM = $City + "sVaktis"
       Add-ADGroupMember -Identity $grpSAM -Members $SAM
     }
+	
+    if ($Description -eq "Ledning" -Or $Description -eq "Chef") {
+      $grpSAM = $City + "sLedning"
+      Add-ADGroupMember -Identity $grpSAM -Members $SAM
+    }
+
 }
