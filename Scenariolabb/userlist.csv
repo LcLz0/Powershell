@@ -1,4 +1,4 @@
-fNamn,lNamn,dNamn,tele,adress,postNr,stad,avdelning
+fName,sName,dName,phone,address,zipCode,city,department
 Fredrik,Aspell,Fredrik Aspell,0707121001,Industrivägen 4,112 34,Stockholm,Konsult
 Johanna,Svensson,Johanna Svensson,0707121002,Industrivägen 4,112 34,Stockholm,Konsult
 Gunnar,Gudmundsson,Gunnar Gudmundsson,0707121003,Industrivägen 4,112 34,Stockholm,Konsult
