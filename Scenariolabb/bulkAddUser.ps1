@@ -65,11 +65,12 @@ foreach ($User in $infoDump)
     #Unlock-ADAccount -Identity $SAM
 }
 
-<#
+
     # Add users to groups, using Description to choose group
 
     if ($Description -eq "Konsult") {
-        # Lägg till i grupp Konsulter
+      $usrGrp = $City + "sKonsulter"
+      Add-ADGroupMember -Identity $usrGrp -Members $SAM
     }
 
     if ($Description -eq "Seniorkonsult") {
