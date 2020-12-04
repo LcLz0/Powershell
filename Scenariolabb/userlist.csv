@@ -1,4 +1,4 @@
-fNamn,lNamn,dNamn,tele,adress,postNr,stad,avdelning
+fName,sName,dName,phone,address,zipCode,city,department
 Fredrik,Aspell,Fredrik Aspell,0707121001,Industrivägen 4,112 34,Stockholm,Konsult
 Johanna,Svensson,Johanna Svensson,0707121002,Industrivägen 4,112 34,Stockholm,Konsult
 Gunnar,Gudmundsson,Gunnar Gudmundsson,0707121003,Industrivägen 4,112 34,Stockholm,Konsult
@@ -40,7 +40,7 @@ Ramona,Larsson,Ramona Larsson,0707121038,Industrivägen 4,112 34,Stockholm,Kons
 Sarah,Skinner,Sarah Skinner,0707121039,Industrivägen 4,112 34,Stockholm,Konsult
 Tina,Karlsson,Tina Karlsson,0707121040,Industrivägen 4,112 34,Stockholm,Konsult
 Zeljko,Goja,Zeljko Goja,0707121041,Industrivägen 4,112 34,Stockholm,Konsult
-Zemira,Goja,Zemira Goja,0707121042,Industrivägen 4,112 34,Stockholm,Konsult
+Semira,Goja,Semira Goja,0707121042,Industrivägen 4,112 34,Stockholm,Konsult
 Åza,Hedlund,Åza Hedlund,0707121043,Industrivägen 4,112 34,Stockholm,Konsult
 Vivianne,Widén,Vivianne Widén,0707121044,Industrivägen 4,112 34,Stockholm,Konsult
 Isabella,Sonnerblom,Isabella Sonnerblom,0707121045,Industrivägen 4,112 34,Stockholm,Konsult

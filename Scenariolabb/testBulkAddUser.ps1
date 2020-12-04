@@ -1,29 +1,27 @@
 ################## Initalise main importVars ##################
 
-$infoDump = Import-Csv -Path "C:\Scripts\userlist.csv"
-$groups = Import-Csv -Path "C:\Scripts\groups.csv"
-$subUnits = Import-Csv -Path "C:\Scripts\subUnits.csv"
+$infoDump = Import-Csv -Path "C:\Users\loco\Documents\Kod\Powershell\Scenariolabb\userlistTest.csv"
+$groups = Import-Csv -Path "C:\Users\loco\Documents\Kod\Powershell\Scenariolabb\groups.csv"
+$subUnits = Import-Csv -Path "C:\Users\loco\Documents\Kod\Powershell\Scenariolabb\subUnits.csv"
 
 ################## Create main OU-structure ##################
 
 # Get list of unique cities
 $uniqCities = $infoDump.city | Select-Object -Unique
+echo "Getting unique cities from userlist. uniqCities = $uniqCities"
 
 ### Create OU-structure
-
-# Create static top level OUs
-New-ADOrganizationalUnit -Name:"Resursgrupper" -Path:"DC=cyberdyne,DC=io"
-New-ADOrganizationalUnit -Name:"Servers" -Path:"DC=cyberdyne,DC=io"
 
 # Create toplevel OU
 foreach ($City in $uniqCities)
 {
-  New-ADOrganizationalUnit -Name:"$City" -Path:"DC=cyberdyne,DC=io"
+  echo "Creating top level OU, named after city. City = $City"
 
   # Create subOu in each toplevel
   foreach ($subOu in $subUnits)
   {
-    New-ADOrganizationalUnit -Name:$subOu.subOu -Path:"OU=$City,DC=cyberdyne,DC=io"
+    $sOu = $subOu.subOu
+    echo "Creating sub-OU in each City. City = $City subOu = $sOu"
   }
 
   # Create groups in each City
@@ -31,7 +29,7 @@ foreach ($City in $uniqCities)
   {
     $grpName = $grp.gName
     $grpSAM = $City + "s" + $grp.gName
-    New-ADGroup -GroupCategory:"Security" -GroupScope:"Global" -Name:$grpName -Path:"OU=Groups,OU=$City,DC=cyberdyne,DC=io" -SamAccountName:$grpSAM
+    echo "Creating groups for each city, for each department. Group name = $grpName with SAM = $grpSAM"
   }
 
 }
@@ -56,48 +54,45 @@ foreach ($User in $infoDump)
 	# $name.Remove(0.99) Remove everything except first char
 	# STRING.ToLower() to change all to lowercase
     $SAM = $FirstName.Remove(0.99) + $LastName
+    $SAM = $SAM.ToLower()
     $SAM = ($SAM -replace "Å","A")
     $SAM = ($SAM -replace "Ä","A")
     $SAM = ($SAM -replace "Ö","O")
-    $SAM = $SAM.ToLower()
     $UPN = "$SAM" + "@cyberdyne.io"
 
-	# Run commands with above vars
-    New-ADUser -Name $Displayname -DisplayName "$Displayname" -GivenName $FirstName -Surname $LastName -Description $Description -MobilePhone $Mobile -StreetAddress "$Address" -PostalCode "$PostalCode" -City $City -Path "$OU" -SamAccountName "$SAM" -UserPrincipalName "$UPN"
-    #Unlock-ADAccount -Identity $SAM
+    echo "Creating user. Displayname = $Displayname"
+    echo "City = $City"
+    echo "OU-path = $OU"
+    echo "SAM = $SAM"
+    echo "UPN = $UPN"
+
 
 
 
     # Add users to groups, using Description to choose group
 
     if ($Description -eq "Konsult") {
-      $grpSAM = $City + "sKonsulter"
-      Add-ADGroupMember -Identity $grpSAM -Members $SAM
+      $grpSAM = $City + "s" + $grpName
+      echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 
     if ($Description -eq "Seniorkonsult") {
-      $grpSAM = $City + "sSeniorer"
-      Add-ADGroupMember -Identity $grpSAM -Members $SAM
+      $grpSAM = $City + "s" + $grpName
+      echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 
     if ($Description -eq "Säljare") {
-      $grpSAM = $City + "sSäljare"
-      Add-ADGroupMember -Identity $grpSAM -Members $SAM
+      $grpSAM = $City + "s" + $grpName
+      echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 
     if ($Description -eq "Ekonom") {
-      $grpSAM = $City + "sEkonomer"
-      Add-ADGroupMember -Identity $grpSAM -Members $SAM
+      $grpSAM = $City + "s" + $grpName
+      echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 
     if ($Description -eq "Vaktis") {
-      $grpSAM = $City + "sVaktis"
-      Add-ADGroupMember -Identity $grpSAM -Members $SAM
+      $grpSAM = $City + "s" + $grpName
+      echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
-	
-    if ($Description -eq "Ledning" -Or $Description -eq "Chef") {
-      $grpSAM = $City + "sLedning"
-      Add-ADGroupMember -Identity $grpSAM -Members $SAM
-    }
-
 }

@@ -1,0 +1,44 @@
+Checklista/Arbetsordning
+
+Labben kommer gå smidigt och arbetet effektivt om ni mer eller mindre jobbar i
+denna ordning, speciellt om man jobbar fortlöpande med dokumentation.
+
+* 1).  Designa och planera er miljö på papper, använd gärna A3-papper.
+       Se till att ni får ett unikt domännamn
+* 2).  Sätt upp dina servrar, enklast genom att jobba med differentingdiskar
+       som pekar på någon av moderdiskarna på kursdatorerna men det går även
+       bra att kopiera någon moderdiskarna. Börja med att skapa en mapp för
+       varje VM, lägg inga filer direkt i VM-foldern.
+* 3).  Konfigurera dem med de fasta IP-adresser er grupp fått tilldelade,
+       ange 10.6.68.1 som gateway
+* 4).  Byt namn på er första DC och starta om
+* 5).  Promota er första DC
+* 6).  Joina era andra servrar till domänen och byt samtidigt namn på den
+* 7).  Promota eventuell ytterligare DC
+* 8).  Skapa OU-strukturen*
+* 9).  Importera eller skapa användarkonton* (se betygskriterier)
+* 10). Skapa och populera grupper*
+11). Skapa utdelningar och sätt korrekta rättigheter
+12). Skapa och konfigurera önskade GPO:er
+* 13). Sätt upp två klientdatorer och joina dem till domänen (Det räcker med
+       Windows 7 men notera att moderdisken för Win7 är 32-bitars)
+14). Testa inställningar och rättigheter
+15). Sammanställ dokumentationen, glöm ej GPO-rapport i HTML-format som man
+     lättast fixar med PowerShell
+16). Fakturera
+
+*Om man väljer att skripta hela uppsättningen kan det hända att man väljer
+att skapa grupperna före användarkontona
+
+
+---------
+
+Extrafix:
+1). Best practices analyser role
+2). DNS-lastbalansering (2 st DNS-servers)
+3). Kolla vad IE Enhanced Security Configuration är
+4). Kolla upp ett Domain Join konto, istället för admin
+5). Ta bort Guest Services
+6). Gå ut på nätet med datorer
+7). Folder redirection
+8). Sätta upp RAID på FServer

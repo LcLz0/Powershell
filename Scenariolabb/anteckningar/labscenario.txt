@@ -1,0 +1,122 @@
+Labscenario - Datormiljö åt företaget Cyberdyne (Starta ingen DHCP i labmiljön).
+--------------------------------------------------------------------------
+
+- Sätt upp en (1) AD-domän.
+- Domänen skall ha minst fyra (4) olika OU på hösta nivå, utöver OU:t för domänkontrollanterna (DC).
+- Installera minimum en (1) Win7/Win10 klientdator som skall gå med i domänen.
+- GPO:er:
+	a) Konfiguera efterfrågade inställningar med GPO:er.
+	b) Föreslå ytterligare GPO:er användbara i driftmiljö.
+
+Dokumentsäkerhet: 
+	a) Dokument skall lagras centralt.
+	b) Dokument skall inte kunna läsas av obehöriga.
+
+Filsystem:
+	a) Redundant filsystem.
+
+Filserver/Share:
+	a) Dela ut en folder från fil-servern till OU:n: (i) Stockholm (Read) och (ii) Sundsvall (Modify).
+	b) Folder skall delas ut med Sharerättigheten Full kontroll till gruppen Authenticated users
+	c) Kom ihåg att både få med Share- och NTFS-rättigheter när ni dokumenterar filservrar
+
+Dokumentera:
+	a) Installation.	# Mest troligen bara vad för program/OS som burken har
+	b) Konfiguration.
+
+Användrargrupper:
+	Företagsledning			4  st (1 chef)
+	Försäljningsavdelning		20 st
+	Konsulter 			60 st
+	Seniorkonsulter/Teamledare 	12 st
+	Ekonomi och redovisning 	2  st
+	Vaktmästare och användarsupport 2  st (1 per ort)
+
+Orter:
+	a) Stockholm låst
+	b) Sundsvall olåst
+
+Det skall dock vara märkbar skillnad mellan användarmiljön på de bägge orterna (Administatörer etc. se Användare nedan skall ej ha strypt miljö).
+Den ena orten skall ha en i flera avseenden mer låst datormiljö (Administatörer etc. se Användrare nedan skall ej ha strypt miljö).
+
+Användare:
+	a) Endast administratörer skall kunna logga in lokalt på filservrarna.
+	b) 100 användare i två (2) orter (Bulkimporteras med PowerShell från anvandare.csv).
+	c) Vaktmästaren i vadera ort ska vara lokal admin för endast den orten för samtliga Users d.v.s. (användarkonton & datorkonton).
+	d) Vaktmästaren i vadera ort ska ha lokala administrativa rättigheter på användarnas datorer för endast den orten. 			#Restricted groups.
+	e) Administratörerna, varken domänadministratörerna eller de med lokala administrativa rättigheter, skall inte ha strypt datormiljö
+	f) Användarna ska ha en skrivbordsbakgrund med namn, nummer och mailadress till den som är deras administratör.
+
+Namnlösning:
+	(i) Företaget bör ha namnlösning till minst en annan grupp i klassen.
+
+Skrivare:
+	(i) Minst två (2) skrivare (en per ort) som skall installeras automatiskt på klientdatorerna i respektive OU. 				#Printer-server för autmatisk drivrutin-installation
+
+Program:
+	(i) Automatisera installationen av ett program som knyts till datorkonton som då får programmet automatiskt installerat vid boot.
+
+Lösenordshantering:
+	(i) Hela domänen skall ha gemensamma inställningar för lösenord och låsning av användarkonton.
+
+
+Riktlinjer för domänen:
+
+På första nivå skall det skapas tre OU:n med följande under-OU:n:
+- Stockholm
+   - Users
+   - Computers
+	- Win10
+   - Groups (Global Groups)
+	- Företagsledning
+	- Försäljningsavdelning
+	- Konsulter
+	- Seniorkonsulter/Teamledare
+	- Ekonomi och redovisning
+	- Vaktmästare och användarsupport
+- Sundsvall
+   - Users
+   - Computers
+	- Win7
+   - Groups (Global Groups)			# Global Groups: Skapa grupper som samlar ihop de olika användarna I grupperna från fil.
+	- Företagsledning
+	- Försäljningsavdelning
+	- Konsulter
+	- Seniorkonsulter/Teamledare
+	- Ekonomi och redovisning
+	- Vaktmästare och användarsupport
+- Resursgrupper 				# Domain Local (Grupper som tilldelas resurser (permissions) och har andra grupper som medlemmar)
+	- X					# I Resursgrupper skall det endast finnas grupper som medlemmar och inte användare. 
+	- X
+	- X
+	- X
+	- X
+- Servers
+  	- File-Server
+  	- Domain Controler (DC)	/ DNS-Server	# 1-2st
+  	- DHCP-Server				# Bonus, akta klassrumsnät
+	- Mail-Server				# Bonus
+
+
+--------------------------------------------------------------------------------
+# The Microsoft Way:
+# Account (Users & Computers) --> Global --> Domain Local <-- Permissions
+--------------------------------------------------------------------------------
+
+Dokumentlista:					#Skall skickas till Erik innan redovisning
+- Serverdokumantation.
+- Faktura inklusive specifikation (Arbetstid, hårdvara, mjukvara).
+- GPO-rapport
+- Lista med eventuella antagande som ni gjort.
+- Importfilen för användarna.
+
+Examinering:
+- Redovisning sker genom en kort demo för Erik som genomförs efter det att ni mailat in dokumenten till mig.
+
+Tips:
+- Döp om servrarna INNAN ni gör dem till domänkontrollanter
+- Ni skall själva tänka ut några relevanta GPO-inställning
+
+
+
+

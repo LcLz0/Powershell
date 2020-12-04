@@ -1,0 +1,2 @@
+1) Ska gå att pinga i interna nätverket IMCP
+2) 
