@@ -62,15 +62,16 @@ foreach ($User in $infoDump)
     echo "City = $City"
     echo "OU-path = $OU"
     echo "SAM = $SAM"
-    echo "UPN = $UPN" 
+    echo "UPN = $UPN"
 
 }
 
-<#
+
     # Add users to groups, using Description to choose group
 
     if ($Description -eq "Konsult") {
-        # Lägg till i grupp Konsulter
+      $usrGrp = $City + "sKonsulter"
+      echo "User group = $usrGrp"
     }
 
     if ($Description -eq "Seniorkonsult") {
@@ -88,4 +89,4 @@ foreach ($User in $infoDump)
     if ($Description -eq "Vaktis") {
         # Lägg till i OU-lokala admingrupper. Väntar på lösning
     }
-}#>
+}
