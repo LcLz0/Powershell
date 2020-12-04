@@ -27,7 +27,7 @@ denna ordning, speciellt om man jobbar fortlöpande med dokumentation.
      lättast fixar med PowerShell
 16). Fakturera
 
-*Om man väljer att skripta hela uppsättningen kan det hÄnda att man väljer
+*Om man väljer att skripta hela uppsättningen kan det hända att man väljer
 att skapa grupperna före användarkontona
 
 
