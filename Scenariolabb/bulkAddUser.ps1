@@ -1,8 +1,8 @@
 ################## Initalise main importVars ##################
+
 $infoDump = Import-Csv -Path "F:\anvandarlistatest.csv"
 $groups = Import-Csv -Path "F:\groups.csv"
 $subUnits = Import-Csv -Path "F:\subUnits.csv"
-
 
 ################## Create main OU-structure ##################
 
