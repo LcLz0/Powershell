@@ -1,0 +1,33 @@
+Tips och kommentarer till scenarielabben
+
+Några korta tips för att underlätta och snabba upp installationen av den virtuella labmiljön
+
+Tag en av de befintliga datorerna från kursen Windows Server 1
+
+Steg 1: Öppna Hyper-V managern och kasta bort alla virtuella maskiner
+
+Steg 2: Gå in i foldern C:\VM och kasta bort alla filer med undantag för de bägge katalogerna
+C:\VM\Installationsfiler
+C:\VM\Moderdiskar
+spara alla filer i dessa bägge mappar
+
+Steg 3: Skapa klienter genom att skapa differatialdiskar som pekar på moderfiler för Windows 7
+
+Steg 4: Installera era Windows 2016 med hjälp av att knyta ISO:n till nya virtuella maskiner eller skapa differatialdiskar som pekar på moderfiler för Windows 2016
+
+Tips:
+Använd klassrumsnätet som nätverk
+Om ni behöver fler än tre diskar till någon maskin är det smidigast att köra SCSI
+
+Förbjudet:
+Att sätta upp en egen DHCP-server på klassrumsnätet
+
+Fler tips 
+Om ni skall ha två identiska domänkontrollanter i er miljö räcker det med att sätta upp en av dem, sedan skriver ni dokumentationen som om ni har bägge (bara kopierar texten och sedan byta namn och IP-adress i dokumentationen av DC1)
+Har ni däremot två DC som dessutom är filservrar och skall användas till olika saker är det bäst att slänga upp bägge i labmiljön
+
+Nästa tips är att inte krångla till miljön allt för mycket. Detta är ett litet företag, ni behöver inte ta till alla balla tekniker som finns, nöj er med de vi gått igenom (t.ex så har vi inte lärt oss att administrera siter så det förväntar jag inte att ni skall konfigurera)
+
+Se till att börja med att få upp miljön så att datorerna pratar med varandra, sedan är det dags att titta på GPO:er och dokumentera
+
+En sista sak för denna gång. Roaming Profiles (nätverkspekning av user profile) är 90-tal, vi har ju lärt oss att hantera Folder Redirection.

@@ -1,0 +1,10 @@
+teknisk beskrivning av servermiljön.
+ installation och konfiguration dokumenteras 
+
+
+DC1 - Roles
+- DNS Server
+- Active Directory Domain Service
+
+File Server - 
+Computer name: File-Server

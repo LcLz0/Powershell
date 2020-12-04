@@ -1,0 +1,3 @@
+1) Användare placerar/sparar ofta sina filer på skrivbordet.
+2) VLAN mellan locations, avstraktion allt samma nätverk risky.
+3) Nätverksredundans?
