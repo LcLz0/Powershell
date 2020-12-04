@@ -60,7 +60,7 @@ foreach ($User in $infoDump)
     $SAM = ($SAM -replace "Å","A")
     $SAM = ($SAM -replace "Ä","A")
     $SAM = ($SAM -replace "Ö","O")
-    $UPN = "$SAM" + "@jultomten.nu"
+    $UPN = "$SAM" + "@cyberdyne.io"
 
 	# Run commands with above vars
     New-ADUser -Name "$Displayname" -GivenName $FirstName -Surname $LastName -Description $Description -MobilePhone $Mobile -StreetAddress "$Address" -PostalCode "$PostalCode" -City $City -Path "$OU" -SamAccountName "$SAM" -UserPrincipalName "$UPN"
