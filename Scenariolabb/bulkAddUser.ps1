@@ -67,23 +67,27 @@ foreach ($User in $infoDump)
     # Add users to groups, using Description to choose group
 
     if ($Description -eq "Konsult") {
-      $usrGrp = $City + "sKonsulter"
-      Add-ADGroupMember -Identity $usrGrp -Members $SAM
+      $grpSAM = $City + "s" + $grp.gName
+      Add-ADGroupMember -Identity $grpSAM -Members $SAM
     }
 
     if ($Description -eq "Seniorkonsult") {
-        # Lägg till i grupp Seniorkonsulter
+      $grpSAM = $City + "s" + $grp.gName
+      Add-ADGroupMember -Identity $grpSAM -Members $SAM
     }
 
     if ($Description -eq "Säljare") {
-        # Lägg till i grupp Försäljningsavdelning
+      $grpSAM = $City + "s" + $grp.gName
+      Add-ADGroupMember -Identity $grpSAM -Members $SAM
     }
 
     if ($Description -eq "Ekonom") {
-        # Lägg till i grupp Ekonomi och Redovisning
+      $grpSAM = $City + "s" + $grp.gName
+      Add-ADGroupMember -Identity $grpSAM -Members $SAM
     }
 
     if ($Description -eq "Vaktis") {
-        # Lägg till i OU-lokala admingrupper. Väntar på lösning
+      $grpSAM = $City + "s" + $grp.gName
+      Add-ADGroupMember -Identity $grpSAM -Members $SAM
     }
 }#>
