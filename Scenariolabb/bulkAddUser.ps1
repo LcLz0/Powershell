@@ -11,6 +11,10 @@ $uniqCities = $infoDump.stad | Select-Object -Unique
 
 ### Create OU-structure
 
+# Create static top level OUs
+New-ADOrganizationalUnit -Name:"Resursgrupper" -Path:"DC=cyberdyne,DC=io"  -ProtectedFromAccidentalDeletion:$false
+New-ADOrganizationalUnit -Name:"Servers" -Path:"DC=cyberdyne,DC=io"  -ProtectedFromAccidentalDeletion:$false
+
 # Create toplevel OU
 foreach ($City in $uniqCities)
 {
