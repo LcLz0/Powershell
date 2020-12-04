@@ -1,25 +1,34 @@
 Checklista/Arbetsordning
 
-Labben kommer gå smidigt och arbetet effektivt om ni mer eller mindre jobbar i denna ordning, speciellt om man jobbar fortlöpande med dokumentation.
+Labben kommer gÃ¥ smidigt och arbetet effektivt om ni mer eller mindre jobbar i
+denna ordning, speciellt om man jobbar fortlÃ¶pande med dokumentation.
 
-* 1).  Designa och planera er miljö på papper, använd gärna A3-papper. Se till att ni får ett unikt domännamn
-* 2).  Sätt upp dina servrar, enklast genom att jobba med differentingdiskar som pekar på någon av moderdiskarna på kursdatorerna men det går även bra att kopiera någon moderdiskarna. Börja med att skapa en mapp för varje VM, lägg inga filer direkt i VM-foldern.
-* 3).  Konfigurera dem med de fasta IP-adresser er grupp fått tilldelade, ange 10.6.68.1 som gateway
-* 4).  Byt namn på er första DC och starta om
-* 5).  Promota er första DC
-* 6).  Joina era andra servrar till domänen och byt samtidigt namn på den
+* 1).  Designa och planera er miljÃ¶ pÃ¥ papper, anvÃ¤nd gÃ¤rna A3-papper.
+       Se till att ni fÃ¥r ett unikt domÃ¤nnamn
+* 2).  SÃ¤tt upp dina servrar, enklast genom att jobba med differentingdiskar
+       som pekar pÃ¥ nÃ¥gon av moderdiskarna pÃ¥ kursdatorerna men det gÃ¥r Ã¤ven
+       bra att kopiera nÃ¥gon moderdiskarna. BÃ¶rja med att skapa en mapp fÃ¶r
+       varje VM, lÃ¤gg inga filer direkt i VM-foldern.
+* 3).  Konfigurera dem med de fasta IP-adresser er grupp fÃ¥tt tilldelade,
+       ange 10.6.68.1 som gateway
+* 4).  Byt namn pÃ¥ er fÃ¶rsta DC och starta om
+* 5).  Promota er fÃ¶rsta DC
+* 6).  Joina era andra servrar till domÃ¤nen och byt samtidigt namn pÃ¥ den
 * 7).  Promota eventuell ytterligare DC
 * 8).  Skapa OU-strukturen*
-* 9).  Importera eller skapa användarkonton* (se betygskriterier)
+* 9).  Importera eller skapa anvÃ¤ndarkonton* (se betygskriterier)
 * 10). Skapa och populera grupper*
-11). Skapa utdelningar och sätt korrekta rättigheter
-12). Skapa och konfigurera önskade GPO:er
-* 13). Sätt upp två klientdatorer och joina dem till domänen (Det räcker med Windows 7 men notera att moderdisken för Win7 är 32-bitars)
-14). Testa inställningar och rättigheter
-15). Sammanställ dokumentationen, glöm ej GPO-rapport i HTML-format som man lättast fixar med PowerShell
+11). Skapa utdelningar och sÃ¤tt korrekta rÃ¤ttigheter
+12). Skapa och konfigurera Ã¶nskade GPO:er
+* 13). SÃ¤tt upp tvÃ¥ klientdatorer och joina dem till domÃ¤nen (Det rÃ¤cker med
+       Windows 7 men notera att moderdisken fÃ¶r Win7 Ã¤r 32-bitars)
+14). Testa instÃ¤llningar och rÃ¤ttigheter
+15). SammanstÃ¤ll dokumentationen, glÃ¶m ej GPO-rapport i HTML-format som man
+     lÃ¤ttast fixar med PowerShell
 16). Fakturera
 
-*Om man väljer att skripta hela uppsättningen kan det hända att man väljer att skapa grupperna före användarkontona
+*Om man vÃ¤ljer att skripta hela uppsÃ¤ttningen kan det hÃ„nda att man vÃ¤ljer
+att skapa grupperna fÃ¶re anvÃ¤ndarkontona
 
 
 ---------
@@ -27,8 +36,9 @@ Labben kommer gå smidigt och arbetet effektivt om ni mer eller mindre jobbar i d
 Extrafix:
 1). Best practices analyser role
 2). DNS-lastbalansering (2 st DNS-servers)
-3). Kolla vad IE Enhanced Security Configuration är
-4). Kolla upp ett Domain Join konto, istället för admin
-5). Ta bort Guest Services 
-6). Gå ut på nätet med datorer
+3). Kolla vad IE Enhanced Security Configuration Ã¤r
+4). Kolla upp ett Domain Join konto, istÃ¤llet fÃ¶r admin
+5). Ta bort Guest Services
+6). GÃ¥ ut pÃ¥ nÃ¤tet med datorer
 7). Folder redirection
+8). SÃ¤tta upp RAID pÃ¥ FServer
