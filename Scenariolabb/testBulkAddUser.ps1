@@ -1,13 +1,13 @@
-cyberdyne.io################## Initalise main importVars ##################
+################## Initalise main importVars ##################
 
-$infoDump = Import-Csv -Path "F:\userlist.csv"
-$groups = Import-Csv -Path "F:\groups.csv"
-$subUnits = Import-Csv -Path "F:\subUnits.csv"
+$infoDump = Import-Csv -Path "C:\Users\loco\Documents\Kod\Powershell\Scenariolabb\userlistTest.csv"
+$groups = Import-Csv -Path "C:\Users\loco\Documents\Kod\Powershell\Scenariolabb\groups.csv"
+$subUnits = Import-Csv -Path "C:\Users\loco\Documents\Kod\Powershell\Scenariolabb\subUnits.csv"
 
 ################## Create main OU-structure ##################
 
 # Get list of unique cities
-$uniqCities = $infoDump.stad | Select-Object -Unique
+$uniqCities = $infoDump.city | Select-Object -Unique
 echo "Getting unique cities from userlist. uniqCities = $uniqCities"
 
 ### Create OU-structure
@@ -20,7 +20,8 @@ foreach ($City in $uniqCities)
   # Create subOu in each toplevel
   foreach ($subOu in $subUnits)
   {
-    echo "Creating sub-OU in each City. City = $City subOu = $subOu.subOu"
+    $sOu = $subOu.subOu
+    echo "Creating sub-OU in each City. City = $City subOu = $sOu"
   }
 
   # Create groups in each City
@@ -54,9 +55,9 @@ foreach ($User in $infoDump)
 	# STRING.ToLower() to change all to lowercase
     $SAM = $FirstName.Remove(0.99) + $LastName
     $SAM = $SAM.ToLower()
-    $SAM = ($SAM -replace "Å","A")
+    <#$SAM = ($SAM -replace "Å","A")
     $SAM = ($SAM -replace "Ä","A")
-    $SAM = ($SAM -replace "Ö","O")
+    $SAM = ($SAM -replace "Ö","O")#>
     $UPN = "$SAM" + "@cyberdyne.io"
 
     echo "Creating user. Displayname = $Displayname"
@@ -71,32 +72,27 @@ foreach ($User in $infoDump)
     # Add users to groups, using Description to choose group
 
     if ($Description -eq "Konsult") {
-      $grpName = $grp.gName
-      $grpSAM = $City + "s" + $grp.gName
+      $grpSAM = $City + "s" + $grpName
       echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 
     if ($Description -eq "Seniorkonsult") {
-      $grpName = $grp.gName
-      $grpSAM = $City + "s" + $grp.gName
+      $grpSAM = $City + "s" + $grpName
       echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 
     if ($Description -eq "Säljare") {
-      $grpName = $grp.gName
-      $grpSAM = $City + "s" + $grp.gName
+      $grpSAM = $City + "s" + $grpName
       echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 
     if ($Description -eq "Ekonom") {
-      $grpName = $grp.gName
-      $grpSAM = $City + "s" + $grp.gName
+      $grpSAM = $City + "s" + $grpName
       echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 
     if ($Description -eq "Vaktis") {
-      $grpName = $grp.gName
-      $grpSAM = $City + "s" + $grp.gName
+      $grpSAM = $City + "s" + $grpName
       echo "Adding user $SAM to User group $grpName with SAM $grpSAM"
     }
 }

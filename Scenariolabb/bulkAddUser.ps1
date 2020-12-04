@@ -7,7 +7,7 @@ $subUnits = Import-Csv -Path "F:\subUnits.csv"
 ################## Create main OU-structure ##################
 
 # Get list of unique cities
-$uniqCities = $infoDump.stad | Select-Object -Unique
+$uniqCities = $infoDump.city | Select-Object -Unique
 
 ### Create OU-structure
 
@@ -57,9 +57,9 @@ foreach ($User in $infoDump)
 	# STRING.ToLower() to change all to lowercase
     $SAM = $FirstName.Remove(0.99) + $LastName
     $SAM = $SAM.ToLower()
-    $SAM = ($SAM -replace "Å","A")
+    <#$SAM = ($SAM -replace "Å","A")
     $SAM = ($SAM -replace "Ä","A")
-    $SAM = ($SAM -replace "Ö","O")
+    $SAM = ($SAM -replace "Ö","O")#>
     $UPN = "$SAM" + "@cyberdyne.io"
 
 	# Run commands with above vars
@@ -70,7 +70,7 @@ foreach ($User in $infoDump)
 
     # Add users to groups, using Description to choose group
 
-    if ($Description -eq "Konsult") {
+  <#  if ($Description -eq "Konsult") {
       $grpSAM = $City + "s" + $grp.gName
       Add-ADGroupMember -Identity $grpSAM -Members $SAM
     }
@@ -93,5 +93,5 @@ foreach ($User in $infoDump)
     if ($Description -eq "Vaktis") {
       $grpSAM = $City + "s" + $grp.gName
       Add-ADGroupMember -Identity $grpSAM -Members $SAM
-    }
+    }#>
 }
