@@ -8,28 +8,26 @@ $subUnits = Import-Csv -Path "F:\subUnits.csv"
 
 # Get list of unique cities
 $uniqCities = $infoDump.stad | Select-Object -Unique
+echo "uniqCities = $uniqCities"
 
 ### Create OU-structure
 
 # Create toplevel OU
 foreach ($City in $uniqCities)
 {
-  New-ADOrganizationalUnit -Name:"$City" -Path:"DC=cyberdyne,DC=io"  -ProtectedFromAccidentalDeletion:$false
-  #echo $City
+  echo "City = $City"
 
   # Create subOu in each toplevel
   foreach ($subOu in $subUnits)
   {
-    New-ADOrganizationalUnit -Name:$subOu.subOu -Path:"OU=$City,DC=cyberdyne,DC=io" -ProtectedFromAccidentalDeletion:$false
-    #echo $subOu.subOu
+    echo "subOu = $subOu.subOu"
   }
 
   # Create groups in each City
   foreach ($grp in $groups)
   {
     $grpName = $City + "s" + $grp.gName
-    New-ADGroup -GroupCategory:"Security" -GroupScope:"Global" -Name:$grpName -Path:"OU=Groups,OU=$City,DC=cyberdyne,DC=io" -SamAccountName:$grpName
-    #echo $grpName
+    echo "grpName = $grpName"
   }
 
 }
@@ -60,9 +58,12 @@ foreach ($User in $infoDump)
     $SAM = ($SAM -replace "Ö","O")
     $UPN = "$SAM" + "@jultomten.nu"
 
-	# Run commands with above vars
-    New-ADUser -Name "$Displayname" -GivenName $FirstName -Surname $LastName -Description $Description -MobilePhone $Mobile -StreetAddress "$Address" -PostalCode "$PostalCode" -City $City -Path "$OU" -SamAccountName "$SAM" -UserPrincipalName "$UPN"
-    #Unlock-ADAccount -Identity $SAM
+    echo "Displayname = $Displayname"
+    echo "City = $City"
+    echo "OU-path = $OU"
+    echo "SAM = $SAM"
+    echo "UPN = $UPN"
+
 }
 
 <#
