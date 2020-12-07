@@ -1,0 +1,66 @@
+﻿GPO:er:
+-------------------------------------------------------------
+
+* 1) SoftwareDeployment
+-------------------------------------------------------------
+	- Installera 7zip på alla datorer
+
+* 2) folderRedir_fileserver (Dokument skall inte kunna läsas av obehöriga, fixa Share och NTFS-rättigheter direkt på mappen)
+-------------------------------------------------------------
+	- Documents
+	- Desktop
+	- Appdata
+	- Pictures
+
+* 3) vaktisLocalAdministratorStockholm
+-------------------------------------------------------------
+	- Restricted group ort-OU (add vaktus to administrators kolla labb)
+	- användarkonton & datorkonton
+
+* 4) vaktisLocalAdministratorSundsvall
+-------------------------------------------------------------
+	- Lokal administrator för alla users (användarkonton & datorkonton) (Restricted group)
+	- Administratör för ort-OU
+
+4) networkSettnings
+-------------------------------------------------------------
+	- Klienter ska använda DHCP
+
+* 5) RestrictedStockholm
+-------------------------------------------------------------
+	- låst installera/avinstallera program
+	- låst control panel
+	- låst program: cmd, powershell, regedit
+	- låst task manager
+	- Remove run
+	- Turn on script execution (Disabled)
+
+* 6) UnrestrictedSundsvall
+-------------------------------------------------------------
+	- öppen installera/avinstallera program
+	- öppen control panel
+	- öppen program: cmd, powershell, regedit
+	- öppen task manager
+
+* 7) Default Domain Group Policy (password)
+-------------------------------------------------------------
+	- Gemensamma för hela domänen
+	- Sätt bra settings för lösenord och dokumentera här
+
+* 8) administratorsLocalFileservers
+-------------------------------------------------------------
+    - Endast administratörer skall kunna logga in lokalt på filservrarna.
+
+XX 9) desktopImage
+-------------------------------------------------------------
+	- Användarna ska ha en skrivbordsbakgrund med namn, nummer och mailadress till den som är deras administratör.
+
+Osorterat:
+-------------------------------------------------------------
+	*- Administratörerna, varken domänadministratörerna eller de med lokala administrativa rättigheter, skall inte ha strypt datormiljö
+	- radera filer (ej creator owner - ntfs
+
+
+Admin info: Tobias Svensson | 0707121012 | tsvensson@cyberdyne.io		Stockholm
+Admin info: Julia Willman | 0707121088 | jwillman@cyberdyne.io			Sundsvall
+

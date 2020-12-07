@@ -36,7 +36,7 @@ Orter:
 	a) Stockholm låst
 	b) Sundsvall olåst
 
-Det skall dock vara märkbar skillnad mellan användarmiljön på de bägge orterna (Administatörer etc. se Användare nedan skall ej ha strypt miljö).
+Det skall vara märkbar skillnad mellan användarmiljön på de bägge orterna (Administatörer etc. se Användare nedan skall ej ha strypt miljö).
 Den ena orten skall ha en i flera avseenden mer låst datormiljö (Administatörer etc. se Användrare nedan skall ej ha strypt miljö).
 
 Användare:

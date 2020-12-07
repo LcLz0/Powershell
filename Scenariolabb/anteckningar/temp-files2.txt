@@ -38,6 +38,13 @@ Redirect paths:
 	- Dokument
 	- Appdata
 
+3) CyberdyneInit:
+----------------------------------------------------------------------------
+	Share-rättigheter:
+		- Authenticated Users Full Controll
+	NTFS-rättigheter:
+		- Authenticated Users Read/Execute
+
 Teknisk specifikation:
 ----------------------------------------------------------------------------
 	- 2 st 1TB SSD https://www.dustin.se/product/5011129893/data-center-dc500m

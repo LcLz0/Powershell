@@ -19,11 +19,11 @@ denna ordning, speciellt om man jobbar fortlöpande med dokumentation.
 * 9).  Importera eller skapa användarkonton* (se betygskriterier)
 * 10). Skapa och populera grupper*
 ** 11). Skapa utdelningar och sätt korrekta rättigheter
-
-
-12). Skapa och konfigurera önskade GPO:er
+* 12). Skapa och konfigurera önskade GPO:er
 * 13). Sätt upp två klientdatorer och joina dem till domänen (Det räcker med
        Windows 7 men notera att moderdisken för Win7 är 32-bitars)
+
+13.5). Share på Modify/Read-grejen
 14). Testa inställningar och rättigheter
 15). Sammanställ dokumentationen, glöm ej GPO-rapport i HTML-format som man
      lättast fixar med PowerShell
@@ -46,7 +46,8 @@ Extrafix:
 7). Folder redirection
 8). Sätta upp RAID på FServer
 9). Default Domain Policy GPO (Password - Computer)
-
+10). Skapa Stockholms/Sundsvalls användare, resursgrupper
+11). Skriv upp alla Share names korrekt
 
 
 
@@ -62,3 +63,4 @@ Licenser
 Secondary DNS best practice
 ENligt boken är best practice att köra en primär zon på dns lagrat i ad. då sköter ad repkliering utan att vi bnehöver tänka på Det
 DNS zone replikation scope
+
