@@ -42,3 +42,19 @@ Extrafix:
 6). Gå ut på nätet med datorer
 7). Folder redirection
 8). Sätta upp RAID på FServer
+
+
+
+
+Sortera in:
+Ou+GPO nya datorer (tveksamt)
+Vaktis bara rätt att joina datorer in i sin egen ort, eller domain admin?
+Kolla rekommenderade specs på dc+filserver
+DNS load balancing baserat på ort styrt i GPO
+Hur ska vi forwarda? DNS forwarding, internet på datorer
+Filserver, en snabb hdd-uppsättning, en långsam backup, ta autobackup på snabba en gång om dagen?
+DOkumentation DHCP
+Licenser
+Secondary DNS best practice
+ENligt boken är best practice att köra en primär zon på dns lagrat i ad. då sköter ad repkliering utan att vi bnehöver tänka på Det
+DNS zone replikation scope

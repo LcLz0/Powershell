@@ -1,0 +1,15 @@
+DC1:
+AD DS
+DNS
+  Forward cloudflare
+
+DC2:
+AD DS
+DNS
+  FOrward cloudflare
+
+
+filserver
+HÅrddiskar:
+  Raid? Uppsättning?
+Shares:
