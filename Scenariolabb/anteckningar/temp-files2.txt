@@ -1,0 +1,54 @@
+﻿DC1: Skynet
+Teknisk spec
+Nätverk
+AD DS
+DNS
+  Forward cloudflare
+
+DC2: Legion
+Teknisk spec
+Nätverk
+AD DS
+DNS
+  FOrward cloudflare
+
+----------------------------------------------------------------------------
+Shares: (filserver: T-800)
+----------------------------------------------------------------------------
+
+1) Gemensam folder:
+----------------------------------------------------------------------------
+	Share-rättigheter:
+		- Authenticated Users Full Controll
+	NTFS-rättigheter:
+		- Sundsvall Modify
+		- Stockholm Read
+
+2) Folder Redirect:
+----------------------------------------------------------------------------
+	Share-rättigheter:
+		- Authenticated Users Full Controll
+	NTFS-rättigheter:
+		- Creator/Owner Full Controll
+      		- System Full Controll
+		- Domain Users List Folder/Read Data (This folder only)
+		- Create Folders/Append Data (This Folder Only) ???
+Redirect paths:
+	- Desktop
+	- Dokument
+	- Appdata
+
+Teknisk specifikation:
+----------------------------------------------------------------------------
+	- 2 st 1TB SSD https://www.dustin.se/product/5011129893/data-center-dc500m
+	- 1 st NAS ???
+
+Backuplösning:
+----------------------------------------------------------------------------
+	- RAID 1 (2 disks)
+	- NAS (remote location)
+
+Windows Server Backup:
+	- Daily backup at 03:00 to a network mounted share (From Off Location NAS)
+
+

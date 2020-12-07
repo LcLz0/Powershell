@@ -1,4 +1,4 @@
-Checklista/Arbetsordning
+﻿Checklista/Arbetsordning
 
 Labben kommer gå smidigt och arbetet effektivt om ni mer eller mindre jobbar i
 denna ordning, speciellt om man jobbar fortlöpande med dokumentation.
@@ -18,7 +18,9 @@ denna ordning, speciellt om man jobbar fortlöpande med dokumentation.
 * 8).  Skapa OU-strukturen*
 * 9).  Importera eller skapa användarkonton* (se betygskriterier)
 * 10). Skapa och populera grupper*
-11). Skapa utdelningar och sätt korrekta rättigheter
+** 11). Skapa utdelningar och sätt korrekta rättigheter
+
+
 12). Skapa och konfigurera önskade GPO:er
 * 13). Sätt upp två klientdatorer och joina dem till domänen (Det räcker med
        Windows 7 men notera att moderdisken för Win7 är 32-bitars)
@@ -34,6 +36,7 @@ att skapa grupperna före användarkontona
 ---------
 
 Extrafix:
+0). Computers namngivning
 1). Best practices analyser role
 2). DNS-lastbalansering (2 st DNS-servers)
 3). Kolla vad IE Enhanced Security Configuration är
@@ -42,10 +45,7 @@ Extrafix:
 6). Gå ut på nätet med datorer
 7). Folder redirection
 8). Sätta upp RAID på FServer
-9). Timezones
-
-10). Sätt upp grupper för hela orter?
-BYT NAMN
+9). Default Domain Policy GPO (Password - Computer)
 
 
 
@@ -59,8 +59,6 @@ Hur ska vi forwarda? DNS forwarding, internet på datorer
 Filserver, en snabb hdd-uppsättning, en långsam backup, ta autobackup på snabba en gång om dagen?
 DOkumentation DHCP
 Licenser
-Secondary  DNS best practice
+Secondary DNS best practice
 ENligt boken är best practice att köra en primär zon på dns lagrat i ad. då sköter ad repkliering utan att vi bnehöver tänka på Det
 DNS zone replikation scope
-
-Quota
