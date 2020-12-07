@@ -11,3 +11,14 @@ Restricted groups
 
 Nätverksinställningar
     - Klienter ska använda DHCP
+
+Applocker
+    - Ska vara skillnad på dom olika orterna, ena ska vara mer nerlåst.
+    -
+
+Lösenord
+    - Gemensamma för hela domänen
+
+Icke sorterade
+    - Endast admins ska kunna logga in lokalt på filservrar
+    - skrivbordsbakgrund

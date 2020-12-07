@@ -15,7 +15,7 @@ DNS
 
 filserver T-800
 Teknisk spec
-  3st 1TB SSD https://www.dustin.se/product/5011129893/data-center-dc500m
+  2st 1TB SSD https://www.dustin.se/product/5011129893/data-center-dc500m
   Standard RAID 1 with three SSD disks
 windows server backup
 
