@@ -1,0 +1,5 @@
+Folder redirection https://studentportal.nackademin.se/mod/page/view.php?id=96802
+REstricted Groups https://studentportal.nackademin.se/mod/page/view.php?id=98678
+Logon local   https://studentportal.nackademin.se/mod/page/view.php?id=98683
+Programinstallation https://studentportal.nackademin.se/mod/page/view.php?id=98619
+Mappning GPO  https://studentportal.nackademin.se/mod/page/view.php?id=98623

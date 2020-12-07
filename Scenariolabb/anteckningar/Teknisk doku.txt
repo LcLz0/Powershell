@@ -24,8 +24,9 @@ Shares:
     NTFS: Sundsvall Modify & Stockholm Read
 
   Folder redirect på skrivbord, dokument, APpData
+    Folder name: FolderRedir
     Share:
-      Auth Users FC 
+      Auth Users FC
     NTFS:
       Creator/Owner FC
       System FC
