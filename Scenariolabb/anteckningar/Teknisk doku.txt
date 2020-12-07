@@ -1,15 +1,28 @@
-DC1:
+DC1: Skynet
+Teknisk spec
+Nätverk
 AD DS
 DNS
   Forward cloudflare
 
-DC2:
+DC2: Legion
+Teknisk spec
+Nätverk
 AD DS
 DNS
   FOrward cloudflare
 
 
-filserver
+filserver T-800
+Teknisk spec
+Nätverk
 HÅrddiskar:
   Raid? Uppsättning?
 Shares:
+  Säljare
+  Konsulter
+  Ekonomer
+  Seniorer
+  Ledning
+
+  - Folder redirect på skrivbord, dokument
