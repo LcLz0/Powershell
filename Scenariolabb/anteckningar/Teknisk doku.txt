@@ -19,10 +19,14 @@ Nätverk
 HÅrddiskar:
   Raid? Uppsättning?
 Shares:
-  Säljare
-  Konsulter
-  Ekonomer
-  Seniorer
-  Ledning
+  Gemensam
+    Share: FC Auth users
+    NTFS: Sundsvall Modify & Stockholm Read
 
-  - Folder redirect på skrivbord, dokument
+  Folder redirect på skrivbord, dokument, APpData
+    Share:
+      Auth Users FC 
+    NTFS:
+      Creator/Owner FC
+      System FC
+      Domain Users List Folder/Read Data, Create Folders/Append Data på This Folder Only (Eventuellt får du skapa detta entry)
