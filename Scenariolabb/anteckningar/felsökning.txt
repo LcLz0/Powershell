@@ -1,3 +1,4 @@
 ﻿----DC----
 * 1. Kolla namnlösning
 * 2. Testa logga in på användare med klientdator
+Testa sthlm vaktis på svall och omvänt
