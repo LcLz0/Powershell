@@ -1,0 +1,52 @@
+----------------------------------------------
+Folder redirection:
+----------------------------------------------
+Location: File-server
+
+Share-rättigheter:
+	a) Authenticated Users (Full Controll)
+
+NTFS-rättigheter:
+	a) Creator/Owner (Full Controll)
+	b) System (Full Controll)
+	c) Domain Users
+		- List Folder/Read Data (this folder only)
+		- Create Folder/Append Data (this folder only) (?)
+
+Folder redirection paths:
+	a) Desktop
+	b) Documents
+	c) Appdata
+
+----------------------------------------------
+Folder Gemensam:
+----------------------------------------------
+Location: File-server
+
+Share-rättigheter:
+	a) Authenticated Users (Full Controll)
+	
+NTFS-rättigheter:
+	a) OU Stockholm Read
+	b) OU Sundsvall Modify
+
+----------------------------------------------
+File-server:
+----------------------------------------------
+Redundant filsystem: 	
+RAID:			Mirrored (RAID 1)
+Antal/Typ:		2 diskar 1 TB SSD
+Secondary backup external (Off location) NAS
+
+Windows Server Backup:
+	Backup 03:00 every day, to mounted network share. Network share folder located on off site NA
+
+
+
+note:
+Dokument skall inte kunna läsas av obehöriga.
+
+
+
+
+
