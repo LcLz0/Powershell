@@ -42,6 +42,7 @@ Extrafix:
 6). Gå ut på nätet med datorer
 7). Folder redirection
 8). Sätta upp RAID på FServer
+9). Timezones
 
 10). Sätt upp grupper för hela orter?
 BYT NAMN
@@ -61,3 +62,5 @@ Licenser
 Secondary  DNS best practice
 ENligt boken är best practice att köra en primär zon på dns lagrat i ad. då sköter ad repkliering utan att vi bnehöver tänka på Det
 DNS zone replikation scope
+
+Quota

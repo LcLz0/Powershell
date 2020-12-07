@@ -1,0 +1,13 @@
+Programinstallation
+    - Ska installera ett program på alla datorer
+
+FolderRedir
+    - Ska styra om följande till filservern:
+      -Documents
+      -Desktop
+
+Restricted groups
+    - Lägga till vaktis i administrators på datorer för respektive Orts-OU
+
+Nätverksinställningar
+    - Klienter ska använda DHCP
