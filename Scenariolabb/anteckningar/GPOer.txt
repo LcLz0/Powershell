@@ -32,3 +32,6 @@ Icke sorterade
 
 Föreslagna:
 -------------------------------------------------------------
+
+Kontrollpanel, regedit, powershell, run blockerat för alla vanliga users
+Tvinga script policy

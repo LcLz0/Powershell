@@ -1,0 +1,24 @@
+Path: E:\CyberdyneInit   Sharepath: \\File-Server\CyberdyneInit$
+	Shareperms: 
+		Auth Users Full Control
+	
+	NTFS-perms: Disable inheritance (this folder, subfolders and all files)
+		Auth Users Read & Execute
+
+Path: E:\Gemensam	Sharepath: \\File-Server\Gemensam
+	Shareperms:
+		Auth Users Full Control
+	
+	NTFS-perms: Disable inheritance (this folder, subfolders and all files)
+		Sundsvallsanvändare 	Modify
+		Sundsvallsadmins	Modify
+		Stockholmsanvändare	Read
+		Stockholmsadmins	Read
+
+Path: E:\User folders	Sharepath: \\FILE-SERVER\User folders$
+	Shareperms:
+		Auth Users Full Control
+
+	NTFS-perms: Disable inheritance
+			Cyberdyne\Domain Users	List folder / read data + Create folders / append data (This folder only)
+			Creator/owner 		Full Control (Subfolders and files only)
