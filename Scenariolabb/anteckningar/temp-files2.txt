@@ -1,16 +1,111 @@
-﻿DC1: Skynet
-Teknisk spec
-Nätverk
-AD DS
-DNS
-  Forward cloudflare
+﻿
+   ▄████▄▓██   ██▓ ▄▄▄▄   ▓█████  ██▀███  ▓█████▄▓██   ██▓ ███▄    █ ▓█████ 
+  ▒██▀ ▀█ ▒██  ██▒▓█████▄ ▓█   ▀ ▓██ ▒ ██▒▒██▀ ██▌▒██  ██▒ ██ ▀█   █ ▓█   ▀ 
+  ▒▓█    ▄ ▒██ ██░▒██▒ ▄██▒███   ▓██ ░▄█ ▒░██   █▌ ▒██ ██░▓██  ▀█ ██▒▒███   
+  ▒▓▓▄ ▄██▒░ ▐██▓░▒██░█▀  ▒▓█  ▄ ▒██▀▀█▄  ░▓█▄   ▌ ░ ▐██▓░▓██▒  ▐▌██▒▒▓█  ▄ 
+  ▒ ▓███▀ ░░ ██▒▓░░▓█  ▀█▓░▒████▒░██▓ ▒██▒░▒████▓  ░ ██▒▓░▒██░   ▓██░░▒████▒
+  ░ ░▒ ▒  ░ ██▒▒▒ ░▒▓███▀▒░░ ▒░ ░░ ▒▓ ░▒▓░ ▒▒▓  ▒   ██▒▒▒ ░ ▒░   ▒ ▒ ░░ ▒░ ░
+    ░  ▒  ▓██ ░▒░ ▒░▒   ░  ░ ░  ░  ░▒ ░ ▒░ ░ ▒  ▒ ▓██ ░▒░ ░ ░░   ░ ▒░ ░ ░  ░
+  ░       ▒ ▒ ░░   ░    ░    ░     ░░   ░  ░ ░  ░ ▒ ▒ ░░     ░   ░ ░    ░   
+  ░ ░     ░ ░      ░         ░  ░   ░        ░    ░ ░              ░    ░  ░
+  ░       ░ ░           ░                  ░      ░ ░                       
+_________________________________________________________________________________
+Licenses:
+  3...........................: Windows Server 2019 Standard Edition
+  100.........................: Windows 10 Professional #volume licesing
 
-DC2: Legion
-Teknisk spec
-Nätverk
-AD DS
-DNS
-  FOrward cloudflare
+_________________________________________________________________________________
+Technical Specification:
+
+Computer Name.............: Skynet
+Operating System..........: Windows Server 2019 Standard Edition (US)
+  Option..................: Desktop Experience
+Roles and Features........: Active Directory Domain Services (AD DS), DNS Server
+  AD DS...................:
+    Domain-name...........: cyberdyne.io
+    OU-structure..........: #Add picture
+    Group Policy Objects..:
+      #
+      #
+      #
+  Groups...................:
+  Users....................: #Name standard
+
+  DNS Server..............:
+     Zone-name............: cyberdyne.io
+     Static-records.......: ## Add name resolutin to other group
+     Forwarders...........: 
+       Preferred DNS......: 1.1.1.1 (Cloudflare)
+       Alternate DNS......: 1.0.0.1 (Cloudflare)
+
+Hardware..................:
+  Supplier................: https://www.dustin.se/product/5011196843/v530-tower
+  Computer................: Lenovo V530 Tower
+  Processor...............: Intel Core i7 3 GHz (8-core)
+  RAM.....................: 2 x 16 GB DDR4 SDRAM (2666 MHz) 		# Add 1 x 16 GB
+  Storage.................: 2 x 512 GB SSD M.2 NVME (RAID1) 		# Add 1 x 512 GB SSD
+  NIC.....................: Ethernet, Fast Ethernet, Gigabit Ethernet   # Network debugging support (KDNet))
+  Grapicscard.............: Intel UHD Graphics 630
+  Formfactor..............: Tower
+  Motherboard.............: Supports Firmware Trusted Platform Module (TPM 2.0) Security Chip)
+  Keyboard................: Lenovo Calliope Keyboard
+  Mouse...................: Lenovo Calliope Mouse
+  Monitor.................: Philips V-line 223V5LHSB2 (22" 1920 x 1080 16:9) # https://www.dustin.se/product/5010969857/v-line-223v5lhsb2
+
+Network...................: Internet Protocol Version 4 (TCP/IPv4)
+  IPv4 Address............: 10.6.68.115		
+  Subnet Mask.............: 255.255.255.0
+  Default Gateway.........: 10.6.68.1 				# Write something there?
+  Preferred DNS server....: 10.6.68.115 (Skynet) 		# Change this (DC1) + load balancing
+  Alternate DNS server....: 10.6.68.116 (Legion) 		# Change this (DC2) + load balancing
+  DHCP Enabled............: No (Static)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_____________________________________________________________________________
+Network:
+  Network Address.........: 10.6.68.0
+  Usable Host IP Range....: 10.6.68.1 - 10.6.68.254
+  Broadcast Address.......: 10.6.68.255
+  Total Number of Hosts...: 256
+  Number of Usable Hosts..: 254
+  Subnet Mask.............: 255.255.255.0
+  Wildcard Mask...........: 0.0.0.255
+  Binary Subnet Mask......: 11111111.11111111.11111111.00000000
+  IP Class................: C
+  CIDR Notation...........: /24
+  IP Type.................: Private
+  Network ID Short........: 10.6.68.0/24
+  Binary ID...............: 00001010000001100100010000000000
+  Integer ID..............: 168182784
+  Hex ID..................: 0xa064400
+  in-addr.arpa............: 0.68.6.10.in-addr.arpa
+  IPv4 Mapped Address.....: ::ffff:0a06.4400
+  6to4 Prefix.............: 2002:0a06.4400::/48
+
+Static IP Addresses:
+  Skynet.....................: 10.6.68.115
+  Legion.....................: 10.6.68.116
+  Genisys....................: 10.6.68.117
+ 
+
+
+
 
 ----------------------------------------------------------------------------
 Shares: (filserver: T-800)
@@ -59,3 +154,4 @@ Windows Server Backup:
 	- Daily backup at 03:00 to a network mounted share (From Off Location NAS)
 
 
+Forward DNS Fix
