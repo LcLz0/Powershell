@@ -48,6 +48,12 @@ Extrafix:
 9). Default Domain Policy GPO (Password - Computer)
 10). Sätta upp resursgrupper för OU. Alla Stockholmsgrupper -
 Vaktis i en Stockholmsanvändare, etc
+11). Fixa till resursgrupper
+
+
+
+VIktiga tillägg:
+1). Ändra Restricted env-GPO:er till ort istället för användare (datorer)
 
 
 

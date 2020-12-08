@@ -1,2 +1,3 @@
 Användare ska mest hålla på med textdokument, alltså behöver inte särskilt mycket utrymme per användare.
 Fungerande VLAN som kopplar ihop olika Orter, ingenting vi behöver hantera
+NAS som är kopplad till filserver är monterad på C:\NAS Backup

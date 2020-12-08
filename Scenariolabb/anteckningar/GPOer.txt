@@ -5,7 +5,7 @@ Efterfrågade:
 Programinstallation
     - Ska installera ett program på alla datorer. Program:
       - 7Zip
-      
+
 
 FolderRedir
 	- Ska styra om följande till filservern:
@@ -21,9 +21,6 @@ Restricted groups
 Nätverksinställningar
 	- Klienter ska använda DHCP
 
-Applocker
-	- Ska vara skillnad på dom olika orterna, ena ska vara mer nerlåst.
-	-
 
 Lösenord
     - Gemensamma för hela domänen

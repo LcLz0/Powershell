@@ -1,4 +1,53 @@
 ﻿----DC----
-* 1. Kolla namnlösning
-* 2. Testa logga in på användare med klientdator
-Testa sthlm vaktis på svall och omvänt
+1. Kolla namnlösning
+2. Testa logga in på användare med klientdator
+3. Testa sthlm vaktis på svall och omvänt
+4. Kolla att DC2 faktiskt får AD:t replikerat till sig
+
+----OU----
+    ---Programinstallation
+    1. Kolla att flera användare på samma dator får 7zip installerat
+    2. Kontrollera att folder redir funkar. Skapa en filer
+
+    ---FolderRedir
+    1. Skapa en fil och kontrollera att den dyker upp på FS
+    2. Logga in på båda klienterna med samma användare, se att filer finnas
+    3. Kontrollera 1&2 med både Documents, Desktop, Appdata
+    4. Kontrollera att ingen förutom Creator kommer åt filer
+
+    ---Restricted Groups
+    1. Kontrollera att vaktis kommer in i local admin i sin ort
+    2. Kontrollera att vaktis INTE kommer in i "motsatt" ort
+
+    ---Restricted env
+    1. Kontrollera att stockholmsanvändare har låst miljö på både Svall
+       och sthlm-datorer
+       - låst installera/avinstallera program
+       - låst control panel
+       - låst program: cmd, powershell, regedit
+       - låst task manager
+       - Remove run
+       - Turn on script execution (Disabled)
+    2. Kontrollera att Sundsvallsanvändare INTE har låst miljö på både
+       Svall och sthlm-datorer
+
+    ---Lösenord
+      1. Testa ändra lösenord till något som inte uppfyller kraven
+
+    ---Osorterat
+      1. Kontrollera att domain admins inte har strypt miljö
+      2. Kontrollera att vaktis inte har strypt miljö i "sin" ort
+
+
+----Filserver----
+    ---Shares
+      1. Kontrollera att stockholm(read) och svall(modify) fungerar som
+         förväntat
+      2. Kontrollera korrekta rättigheter på FolderRedir (samma som OU)
+
+----Namnlösning----
+  1. Pinga en annan grupp, kolla att det löser korrekt
+
+
+----Skrivare----
+  1. ?????
