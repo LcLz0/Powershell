@@ -37,6 +37,7 @@
     ---Osorterat
       1. Kontrollera att domain admins inte har strypt miljö
       2. Kontrollera att vaktis inte har strypt miljö i "sin" ort
+      3. Kontrollera lokala admins 
 
 
 ----Filserver----
@@ -47,7 +48,6 @@
 
 ----Namnlösning----
   1. Pinga en annan grupp, kolla att det löser korrekt
-
 
 ----Skrivare----
   1. ?????
