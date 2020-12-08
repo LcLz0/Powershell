@@ -1,53 +1,89 @@
 ﻿----DC----
-1. Kolla namnlösning
-2. Testa logga in på användare med klientdator
-3. Testa sthlm vaktis på svall och omvänt
-4. Kolla att DC2 faktiskt får AD:t replikerat till sig
+*	1. Kolla namnlösning
+		Går att pinga hostnames med korrekt namnlösning inom hela domänen
+*	2. Testa logga in på användare med klientdator
+		Användare från båda orter kan logga in på båda klienter
+####	3. Testa sthlm vaktis på svall och omvänt
+*	4. Kolla att DC2 faktiskt får AD:t replikerat till sig
+		Så gott som det går har jag jämfört AD och det replikerar. DNS-records replikerar
 
 ----OU----
     ---Programinstallation
-    1. Kolla att flera användare på samma dator får 7zip installerat
-    2. Kontrollera att folder redir funkar. Skapa en filer
+*    1. Kolla att flera användare på samma dator får 7zip installerat
+		Har kollat två (olika för orter, totalt 4) användare på båda klienter. Alla har 7-zip installerat
 
     ---FolderRedir
-    1. Skapa en fil och kontrollera att den dyker upp på FS
-    2. Logga in på båda klienterna med samma användare, se att filer finnas
-    3. Kontrollera 1&2 med både Documents, Desktop, Appdata
-    4. Kontrollera att ingen förutom Creator kommer åt filer
+*    1. Skapa en fil och kontrollera att den dyker upp på FS
+		Efter att ha loggat in som en ny användare har en mapp för den användaren skapats på
+		rätt ställe på filservern. Vidare kontroll ej utförd
+*    2. Logga in på båda klienterna med samma användare, se att filer finns
+		Har loggat in med gpino på både Win7 och Win10. 
+		- Desktop fungerar korrekt, test-folder finns på båda klienter	
+		- AppData Testfolder dyker EJ upp på båda klienter
+		- Documents + Phots Båda test-foldrar dyker upp på båda klienterna
+*    3. Kontrollera 1&2 med både Documents, Desktop, Appdata
+		Dokumenterat under 2
+*    4. Kontrollera att ingen förutom Creator kommer åt filer
+		Domain Admin kommer inte åt user folders direkt på filserver
+		Lokal vaktisadmin kommer åt User-mappar på klienter
 
     ---Restricted Groups
-    1. Kontrollera att vaktis kommer in i local admin i sin ort
-    2. Kontrollera att vaktis INTE kommer in i "motsatt" ort
+*    1. Kontrollera att vaktis kommer in i local admin i sin ort
+		Inloggad med tsvensson (sthlmvaktis) på dator i sthlm. Kontrollerat att StockholmsVaktis är del av
+		Administrators-gruppen lokalt på den datorn. Har de adminperms som förväntas
+		Exakt samma kontroll utförd med jwillman på svalldator, fungerar som väntat.
+*    2. Kontrollera att vaktis INTE kommer in i "motsatt" ort
+		Loggar in med tsvensson på svall-klient. Tsvensson har inte adminrättigheter på svall-dator.
+		jwillman har ej adminrättigheter på sthlm-dator. Däremot har hon tillgång till t.ex. kontrollpanel 
 
     ---Restricted env
-    1. Kontrollera att stockholmsanvändare har låst miljö på både Svall
+*    1. Kontrollera att stockholmsanvändare har låst miljö på både Svall
        och sthlm-datorer
-       - låst installera/avinstallera program
-       - låst control panel
-       - låst program: cmd, powershell, regedit
-       - låst task manager
-       - Remove run
-       - Turn on script execution (Disabled)
-    2. Kontrollera att Sundsvallsanvändare INTE har låst miljö på både
+		Loggar in med aolsson på båda klienter och kontrollera följande:
+       ** låst installera/avinstallera program
+       ** låst control panel
+       ** låst program: cmd, powershell, regedit
+       ** låst task manager
+       ** Remove run
+       - Turn on script execution (Disabled) (Går ej att kontrollera, har inte tillgång till powershell)
+*    2. Kontrollera att Sundsvallsanvändare INTE har låst miljö på både
        Svall och sthlm-datorer
+		Loggar in med gpino på båda klienter och testar följande:
+       ** öppet installera/avinstallera program
+       ** öppet control panel
+       ** öppet program: cmd, powershell, regedit
+       ** öppet task manager
+       ** finns run
+       * Turn on script execution (Enable) 
 
     ---Lösenord
-      1. Testa ändra lösenord till något som inte uppfyller kraven
+*      1. Testa ändra lösenord till något som inte uppfyller kraven
+		Försökt ändra lösenord till något som ej uppfyller kraven, tillåts ej
 
     ---Osorterat
-      1. Kontrollera att domain admins inte har strypt miljö
-      2. Kontrollera att vaktis inte har strypt miljö i "sin" ort
-      3. Kontrollera lokala admins 
+*      1. Kontrollera att domain admins inte har strypt miljö
+		Domain admins inloggade på båda klienter, har fullt öppen miljö
+*      2. Kontrollera att vaktis inte har strypt miljö i "sin" ort
+		Kontrollerat ovan i Restricted Groups-sektion. Kontrollera igen efter OU
+		Kontrollerat efter disabled link på RestoreVaktis, fungerar som förväntat.
+*      3. Kontrollera lokala admins 
+		Funkar på win10. Win7: (administrator avstängd, admin funkar ej). Administrator aktiverat med domain
+		admin på win7. Fungerar korrekt efter det.
 
 
 ----Filserver----
     ---Shares
-      1. Kontrollera att stockholm(read) och svall(modify) fungerar som
+*      1. Kontrollera att stockholm(read) och svall(modify) fungerar som
          förväntat
-      2. Kontrollera korrekta rättigheter på FolderRedir (samma som OU)
+		Användare 1 från Sundsvall kan skapa mapp och fil i Gemensam
+		Annan användare, 2 från Sundsvall, (Icke creator/owner eller admin) kan ta bort Användare 1s skapade file
+		Användare 3, från Stockholm, kan inte ta bort andras filer, kan ej skapa filer
+*      2. Kontrollera korrekta rättigheter på FolderRedir (samma som OU)
+		Kontrollerat i OU-felsökning
 
 ----Namnlösning----
-  1. Pinga en annan grupp, kolla att det löser korrekt
+ * 1. Pinga en annan grupp, kolla att det löser korrekt
+		Pinga bryggeriet.se funkar som förväntat, korrekt namnlösning
 
 ----Skrivare----
   1. ?????
