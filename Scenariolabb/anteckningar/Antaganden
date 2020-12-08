@@ -1,3 +1,4 @@
 Användare ska mest hålla på med textdokument, alltså behöver inte särskilt mycket utrymme per användare.
 Fungerande VLAN som kopplar ihop olika Orter, ingenting vi behöver hantera
 NAS som är kopplad till filserver är monterad på C:\NAS Backup
+Vi har en IP-pool på över 5 adresser för att dokumentera DHCP
