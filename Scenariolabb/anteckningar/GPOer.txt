@@ -21,7 +21,7 @@ Nätverksinställningar
 
 Applocker
 	- Ska vara skillnad på dom olika orterna, ena ska vara mer nerlåst.
-	- 
+	-
 
 Lösenord
     - Gemensamma för hela domänen
@@ -30,6 +30,12 @@ Icke sorterade
     - Endast admins ska kunna logga in lokalt på filservrar
     - skrivbordsbakgrund
 
+Global säk
+    Låsa:
+      - Regedit
+      - CMD
+      - PowerShell
+      - VIktiga systeminställningar
 
 Föreslagna:
 -------------------------------------------------------------
