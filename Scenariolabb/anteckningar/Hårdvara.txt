@@ -1,0 +1,5 @@
+-----------DC1-----------
+Generella notes:
+  Mycket ram
+  En NVME för hög läshastighet
+  CPU: Många threads snarare än hög klockhastighet

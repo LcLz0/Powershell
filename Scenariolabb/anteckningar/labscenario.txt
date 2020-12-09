@@ -1,100 +1,100 @@
-Labscenario - Datormiljö åt företaget Cyberdyne (Starta ingen DHCP i labmiljön).
+Labscenario - Datormiljï¿½ ï¿½t fï¿½retaget Cyberdyne (Starta ingen DHCP i labmiljï¿½n).
 --------------------------------------------------------------------------
 
-- Sätt upp en (1) AD-domän.
-- Domänen skall ha minst fyra (4) olika OU på hösta nivå, utöver OU:t för domänkontrollanterna (DC).
-- Installera minimum en (1) Win7/Win10 klientdator som skall gå med i domänen.
+- Sï¿½tt upp en (1) AD-domï¿½n.
+- Domï¿½nen skall ha minst fyra (4) olika OU pï¿½ hï¿½sta nivï¿½, utï¿½ver OU:t fï¿½r domï¿½nkontrollanterna (DC).
+- Installera minimum en (1) Win7/Win10 klientdator som skall gï¿½ med i domï¿½nen.
 - GPO:er:
-	a) Konfiguera efterfrågade inställningar med GPO:er.
-	b) Föreslå ytterligare GPO:er användbara i driftmiljö.
+	a) Konfiguera efterfrï¿½gade instï¿½llningar med GPO:er.
+	b) Fï¿½reslï¿½ ytterligare GPO:er anvï¿½ndbara i driftmiljï¿½.
 
-Dokumentsäkerhet: 
+Dokumentsï¿½kerhet:
 	a) Dokument skall lagras centralt.
-	b) Dokument skall inte kunna läsas av obehöriga.
+	b) Dokument skall inte kunna lï¿½sas av obehï¿½riga.
 
 Filsystem:
 	a) Redundant filsystem.
 
 Filserver/Share:
-	a) Dela ut en folder från fil-servern till OU:n: (i) Stockholm (Read) och (ii) Sundsvall (Modify).
-	b) Folder skall delas ut med Sharerättigheten Full kontroll till gruppen Authenticated users
-	c) Kom ihåg att både få med Share- och NTFS-rättigheter när ni dokumenterar filservrar
+	a) Dela ut en folder frï¿½n fil-servern till OU:n: (i) Stockholm (Read) och (ii) Sundsvall (Modify).
+	b) Folder skall delas ut med Sharerï¿½ttigheten Full kontroll till gruppen Authenticated users
+	c) Kom ihï¿½g att bï¿½de fï¿½ med Share- och NTFS-rï¿½ttigheter nï¿½r ni dokumenterar filservrar
 
 Dokumentera:
-	a) Installation.	# Mest troligen bara vad för program/OS som burken har
+	a) Installation.	# Mest troligen bara vad fï¿½r program/OS som burken har
 	b) Konfiguration.
 
-Användrargrupper:
-	Företagsledning			4  st (1 chef)
-	Försäljningsavdelning		20 st
+Anvï¿½ndrargrupper:
+	Fï¿½retagsledning			4  st (1 chef)
+	Fï¿½rsï¿½ljningsavdelning		20 st
 	Konsulter 			60 st
 	Seniorkonsulter/Teamledare 	12 st
 	Ekonomi och redovisning 	2  st
-	Vaktmästare och användarsupport 2  st (1 per ort)
+	Vaktmï¿½stare och anvï¿½ndarsupport 2  st (1 per ort)
 
 Orter:
-	a) Stockholm låst
-	b) Sundsvall olåst
+	a) Stockholm lï¿½st
+	b) Sundsvall olï¿½st
 
-Det skall dock vara märkbar skillnad mellan användarmiljön på de bägge orterna (Administatörer etc. se Användare nedan skall ej ha strypt miljö).
-Den ena orten skall ha en i flera avseenden mer låst datormiljö (Administatörer etc. se Användrare nedan skall ej ha strypt miljö).
+Det skall dock vara mï¿½rkbar skillnad mellan anvï¿½ndarmiljï¿½n pï¿½ de bï¿½gge orterna (Administatï¿½rer etc. se Anvï¿½ndare nedan skall ej ha strypt miljï¿½).
+Den ena orten skall ha en i flera avseenden mer lï¿½st datormiljï¿½ (Administatï¿½rer etc. se Anvï¿½ndrare nedan skall ej ha strypt miljï¿½).
 
-Användare:
-	a) Endast administratörer skall kunna logga in lokalt på filservrarna.
-	b) 100 användare i två (2) orter (Bulkimporteras med PowerShell från anvandare.csv).
-	c) Vaktmästaren i vadera ort ska vara lokal admin för endast den orten för samtliga Users d.v.s. (användarkonton & datorkonton).
-	d) Vaktmästaren i vadera ort ska ha lokala administrativa rättigheter på användarnas datorer för endast den orten. 			#Restricted groups.
-	e) Administratörerna, varken domänadministratörerna eller de med lokala administrativa rättigheter, skall inte ha strypt datormiljö
-	f) Användarna ska ha en skrivbordsbakgrund med namn, nummer och mailadress till den som är deras administratör.
+Anvï¿½ndare:
+	a) Endast administratï¿½rer skall kunna logga in lokalt pï¿½ filservrarna.
+	b) 100 anvï¿½ndare i tvï¿½ (2) orter (Bulkimporteras med PowerShell frï¿½n anvandare.csv).
+	c) Vaktmï¿½staren i vadera ort ska vara lokal admin fï¿½r endast den orten fï¿½r samtliga Users d.v.s. (anvï¿½ndarkonton & datorkonton).
+	d) Vaktmï¿½staren i vadera ort ska ha lokala administrativa rï¿½ttigheter pï¿½ anvï¿½ndarnas datorer fï¿½r endast den orten. 			#Restricted groups.
+	e) Administratï¿½rerna, varken domï¿½nadministratï¿½rerna eller de med lokala administrativa rï¿½ttigheter, skall inte ha strypt datormiljï¿½
+	f) Anvï¿½ndarna ska ha en skrivbordsbakgrund med namn, nummer och mailadress till den som ï¿½r deras administratï¿½r.
 
-Namnlösning:
-	(i) Företaget bör ha namnlösning till minst en annan grupp i klassen.
+Namnlï¿½sning:
+	(i) Fï¿½retaget bï¿½r ha namnlï¿½sning till minst en annan grupp i klassen.
 
 Skrivare:
-	(i) Minst två (2) skrivare (en per ort) som skall installeras automatiskt på klientdatorerna i respektive OU. 				#Printer-server för autmatisk drivrutin-installation
+	(i) Minst tvï¿½ (2) skrivare (en per ort) som skall installeras automatiskt pï¿½ klientdatorerna i respektive OU. 				#Printer-server fï¿½r autmatisk drivrutin-installation
 
 Program:
-	(i) Automatisera installationen av ett program som knyts till datorkonton som då får programmet automatiskt installerat vid boot.
+	(i) Automatisera installationen av ett program som knyts till datorkonton som dï¿½ fï¿½r programmet automatiskt installerat vid boot.
 
-Lösenordshantering:
-	(i) Hela domänen skall ha gemensamma inställningar för lösenord och låsning av användarkonton.
+Lï¿½senordshantering:
+	(i) Hela domï¿½nen skall ha gemensamma instï¿½llningar fï¿½r lï¿½senord och lï¿½sning av anvï¿½ndarkonton.
 
 
-Riktlinjer för domänen:
+Riktlinjer fï¿½r domï¿½nen:
 
-På första nivå skall det skapas tre OU:n med följande under-OU:n:
+Pï¿½ fï¿½rsta nivï¿½ skall det skapas tre OU:n med fï¿½ljande under-OU:n:
 - Stockholm
    - Users
    - Computers
 	- Win10
    - Groups (Global Groups)
-	- Företagsledning
-	- Försäljningsavdelning
+	- Fï¿½retagsledning
+	- Fï¿½rsï¿½ljningsavdelning
 	- Konsulter
 	- Seniorkonsulter/Teamledare
 	- Ekonomi och redovisning
-	- Vaktmästare och användarsupport
+	- Vaktmï¿½stare och anvï¿½ndarsupport
 - Sundsvall
    - Users
    - Computers
 	- Win7
-   - Groups (Global Groups)			# Global Groups: Skapa grupper som samlar ihop de olika användarna I grupperna från fil.
-	- Företagsledning
-	- Försäljningsavdelning
+   - Groups (Global Groups)			# Global Groups: Skapa grupper som samlar ihop de olika anvï¿½ndarna I grupperna frï¿½n fil.
+	- Fï¿½retagsledning
+	- Fï¿½rsï¿½ljningsavdelning
 	- Konsulter
 	- Seniorkonsulter/Teamledare
 	- Ekonomi och redovisning
-	- Vaktmästare och användarsupport
+	- Vaktmï¿½stare och anvï¿½ndarsupport
 - Resursgrupper 				# Domain Local (Grupper som tilldelas resurser (permissions) och har andra grupper som medlemmar)
-	- X					# I Resursgrupper skall det endast finnas grupper som medlemmar och inte användare. 
-	- X
-	- X
+	- X					# I Resursgrupper skall det endast finnas grupper som medlemmar och inte anvï¿½ndare.
+	- X StockholmsanvÃ¤ndare (Alla stockholmsgrupper minus vaktis)
+	- X SundsvallsanvÃ¤ndare (Alla sundsvallsgrupper minus vaktis)
 	- X
 	- X
 - Servers
   	- File-Server
   	- Domain Controler (DC)	/ DNS-Server	# 1-2st
-  	- DHCP-Server				# Bonus, akta klassrumsnät
+  	- DHCP-Server				# Bonus, akta klassrumsnï¿½t
 	- Mail-Server				# Bonus
 
 
@@ -105,18 +105,14 @@ På första nivå skall det skapas tre OU:n med följande under-OU:n:
 
 Dokumentlista:					#Skall skickas till Erik innan redovisning
 - Serverdokumantation.
-- Faktura inklusive specifikation (Arbetstid, hårdvara, mjukvara).
+- Faktura inklusive specifikation (Arbetstid, hï¿½rdvara, mjukvara).
 - GPO-rapport
 - Lista med eventuella antagande som ni gjort.
-- Importfilen för användarna.
+- Importfilen fï¿½r anvï¿½ndarna.
 
 Examinering:
-- Redovisning sker genom en kort demo för Erik som genomförs efter det att ni mailat in dokumenten till mig.
+- Redovisning sker genom en kort demo fï¿½r Erik som genomfï¿½rs efter det att ni mailat in dokumenten till mig.
 
 Tips:
-- Döp om servrarna INNAN ni gör dem till domänkontrollanter
-- Ni skall själva tänka ut några relevanta GPO-inställning
-
-
-
-
+- Dï¿½p om servrarna INNAN ni gï¿½r dem till domï¿½nkontrollanter
+- Ni skall sjï¿½lva tï¿½nka ut nï¿½gra relevanta GPO-instï¿½llning

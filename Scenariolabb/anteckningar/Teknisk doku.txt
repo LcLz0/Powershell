@@ -18,6 +18,7 @@ Teknisk spec
   2st 1TB SSD https://www.dustin.se/product/5011129893/data-center-dc500m
   Standard RAID 1 with three SSD disks
 windows server backup
+NAS: https://www.dustin.se/product/5010899006/my-cloud-ex2-ultra
 
 Nätverk
 HÅrddiskar:
