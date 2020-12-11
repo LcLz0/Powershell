@@ -1,7 +1,13 @@
 1) Gör fullständig dokumentation per Device
 2) Lägg till fysisk plats per device
 3) File-Server - lägg dokumentation om roller sist
-4) Hantering av users som inte får ett unikt $SAM: (i) Logga (ev. på felmeddelandet) (ii) hur skapa automatiskt
 5) Share: sätt igång samarbete en folder alla kan skriva till Domain Local
 6) Share: Någon mer rolig share där det är olika typer av rättigheter baserat på Domain Local
-7) Uppdatera folders rättigheter efter rätt inställningar
+7) Uppdatera folders rättigheter i dokumentation
+8) GPO: VaktisLocalAdministratorStockholm: Control panel , remove add programs 
+9) GPO: RestrictedStockholm: korrekt deligation
+
+
+
+-----
+4) Hantering av users som inte får ett unikt $SAM: (i) Logga (ev. på felmeddelandet) (ii) hur skapa automatiskt
